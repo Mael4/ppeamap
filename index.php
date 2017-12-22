@@ -43,8 +43,9 @@ switch($uc)
 		{include("controleurs/c_commande.php");break;}
 	case 'ajout' :
 		{include("controleurs/c_gestionProduits.php");break;}
+                
         case 'gestionPanierProducteur' :
-                {include("controleurs/c_gestionPanierProducteur.php");break;}
+            {include("controleurs/c_GestionPanierProducteur.php");break;}
 }
 
 include("vues/v_pied.php") ;

@@ -12,4 +12,5 @@
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="js/script.js"></script>
         <script src="js/modificationInfosCompte.js"></script>
+        <script src="js/scriptModificationPrixQtt.js"></script>
     </head>

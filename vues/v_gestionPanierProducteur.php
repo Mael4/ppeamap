@@ -3,7 +3,7 @@
            
 			<div class="sidebar-nav col-sm-2 col-12">
 				<div class="navbar navbar-default" role="navigation">
-					<ul class="nav navbar-nav">
+                    			<ul class="nav navbar-nav">
 					
 					<?php
 					foreach($categories as $categorie)
@@ -25,7 +25,7 @@
 		  <div class="col-sm-10 col-xs-12">
 			<?php
 				
-				if (!isset($_SESSION['id_Type_utilisateur'])) {
+				if (!isset($_SESSION['id_Type_producteur'])) {
 				foreach($produits as $cle => $produit)
 				{
 					
@@ -38,12 +38,13 @@
 							</div>
 							
 							<div class='row'>
+                                                        <form method='GET' action='c_GestionPanierProducteur.php'>
 								<div class='col-12'>
 									<div class='col-12 col-sm-6 col-md-4 well well-sm'>
 										<img class='imageproduit img-rounded' src= 'img/produits/".mb_strtolower($produit['libelle']).".jpg' alt='' />
 									</div>
 								
-									<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description_produit".$produit['id']."'>Description:<br/>".$produit['description']."</div>
+									<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description_produit".$produit['id']."'>Description:<br/><textarea name='Description' id='Desc' rows='10' cols='50'>  </textarea></div>
 								</div>
 							</div>
 					
@@ -66,7 +67,8 @@
                                                                    </div>
                           
 							</div>
-					</div>";
+					</div>
+                                        </form>";
 					
 				}
                                 }
@@ -110,4 +112,4 @@
 			
 		  </div>
 	</div>
-</div>
+</div>/div>

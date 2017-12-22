@@ -23,7 +23,7 @@
 			
 		  <div class="col-sm-10 col-xs-12">
 			<?php
-                                if (!isset($_SESSION['id_Type_prducteur'])) {
+                                if (!isset($_SESSION['id_Type_producteur'])) {
 				foreach($produits as $cle => $produit)
 				{
 					
