@@ -29,8 +29,10 @@
 				foreach($produits as $cle => $produit)
 				{
 					
-				echo "<div class='col-12 col-sm-10 well'>
-						
+				echo "
+                                    <form method='post' action='index.php?uc=modificationDeProduit'>
+                                    <div class='col-12 col-sm-10 well'>
+					  	
                                             <div class='row'>
 						<div class='well well-sm' id='libelle_produit".$produit['id']."'>
                                                     Libellé produit: <input type='text' class='form-control' id='prix' placeholder=".$produit['libelle']."></input>
@@ -40,7 +42,7 @@
                                             </div>
 							
                                             <div class='row'>
-                                                    <form method='GET' action='c_GestionPanierProducteur.php'>
+                                                  
 							<div class='col-12'>
 								<div class='col-12 col-sm-6 col-md-4 well well-sm'>
 									<img class='imageproduit img-rounded' src= 'img/produits/".mb_strtolower($produit['libelle']).".jpg' alt='' />
@@ -74,8 +76,16 @@
                           
                                                     </div>
                                             </div>
+                                           <div class='row'>
+                                               <div class='col-12 col-sm-12 submit '>
+                                                      <a href='index.php?uc=voirProduitsProducteur' class='btn btn-info' role='button'>Retour</a>
+                                                    <button type='submit' class='btn btn-default'>Enregistrer</button>
+                                                    
+                                               </div>
+                                           </div>
+                                          
                                     </div>
-                                        </form>";
+                                       </form>  ";
 					
 				}
                                 }
@@ -85,4 +95,4 @@
 			
 		  </div>
 	</div>
-</div>/div>
+</div>
