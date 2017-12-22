@@ -274,6 +274,14 @@ function supprimerArticle($libelleProduit){
    echo "Un problème est survenu veuillez contacter l'administrateur du site.";
 }
 
+function supprimerProduit($idProduit){
+    global $bdd;
+    $req = "DELETE FROM `produit` WHERE `produit`.`id` = '".$idProduit."'";
+	$req = $bdd->prepare($req);
+	$req -> execute();
+    
+}
+
 function modifierQTeArticle($libelleProduit,$qteProduit){
    //Si le panier éxiste
    if (creationPanier())

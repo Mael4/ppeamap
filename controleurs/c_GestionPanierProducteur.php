@@ -16,17 +16,10 @@ if($_REQUEST['action'] == "Modifier")
 }
 elseif($_REQUEST['action'] == "Suprimer")
 {
-        if(!isset($_REQUEST['idProduit']))
+        if(isset($_REQUEST['idProduit']))
         {
-		$produits = get_produit($_REQUEST['idProduit']);
-                $Verif =confirmer("Voulez Vous Supprimer ce Produit ?");
-                if($Verif){
-                    //supprimerArticle($_REQUEST['idProduit']);
-                    include('vues/v_ValidationSupprimer.php');
-                }else{
-                        $produits = get_produit(0);
-                        include('vues/v_gestionPanierProducteur.php');
-                }   
+                supprimerProduit($_REQUEST['idProduit']);
+                include('vues/v_ValidationSupprimer.php');  
 	}
 	
 }
