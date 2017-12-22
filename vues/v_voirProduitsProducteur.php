@@ -24,6 +24,9 @@
 		  <div class="col-sm-10 col-xs-12">
 			<?php
                                 if (!isset($_SESSION['id_Type_producteur'])) {
+                                    echo"<form method='post' action='index.php?uc=gestionPanierProducteur&action=Ajouter'>
+										<input type='submit' id='button_Ajouter' class='form-control input-sm' value='Ajouter Un Produit'></input>
+									</form>";
 				foreach($produits as $cle => $produit)
 				{
 					

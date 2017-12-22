@@ -23,6 +23,10 @@ elseif($_REQUEST['action'] == "Suprimer")
 	}
 	
 }
+elseif($_REQUEST['action'] == "Ajouter")
+{
+        include('vues/v_ajoutproduits.php');
 	
+}	
 	
 ?>

@@ -191,6 +191,7 @@ function set_compte($login, $nom, $prenom, $adresse, $mail, $tel, $cp, $ville, $
 
 function creerArticleBD($description, $prix, $idCategorie)
 {
+        global $bdd;
 	$req = $bdd->prepare("INSERT INTO produit(description, prix, idCategorie)
 	VALUES(:description, :prix, :idCategorie)");
 
