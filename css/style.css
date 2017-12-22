@@ -43,3 +43,7 @@ body
     width:100%;
     height:165px;
 }
+.submit
+{
+    text-align: right;
+}
