@@ -22,12 +22,14 @@
 			</div>
 			
 		  <div class="col-sm-10 col-xs-12">
+                      
+                      
 			<?php
 				
 				if (!isset($_SESSION['id_Type_utilisateur'])) {
 				foreach($produits as $cle => $produit)
 				{
-					
+                            
 				echo "<div class='col-12 col-sm-10 well'>
 						
 							<div class='row'>
@@ -58,8 +60,10 @@
 								<div class='col-12 col-sm-6 well'>
 									<div class='col-sm-6' id='pu_produit".$produit['id']."'>Prix au kilo:".$produit['prixunitaire']." euros.
 									</div>
-								<div class='col-sm-6' id='quantite_produit".$produit['id']."'>Stock : ".$produit['quantite']." kilogramme(s)</div></div>
+                                                                        
+								<div class='col-sm-6' name ='stock' id='quantite_produit".$produit['id']."'> Stock : ".$produit['quantite']." kilogrammes</div></div>
 							</div>
+                                                        
 					</div>";
 					
 				}

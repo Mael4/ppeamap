@@ -1,5 +1,5 @@
 <div class="container">
 	<div class="row">
-		<p>d'accueil.</p>
+		<p>la page d'accueil.</p>
 	</div>
 </div>

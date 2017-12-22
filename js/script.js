@@ -127,7 +127,7 @@ $(document).ready(function()
         });
     });
 	
-	//dans l'espace consommateur, affiche els information du compte au click sur le bouton informations compte
+	//dans l'espace consommateur, affiche les informations du compte au click sur le bouton informations compte
 	$('#info_consommateur').on('click',function(){
         var box = $('#corps');
         $.ajax({
@@ -158,4 +158,8 @@ $(document).ready(function()
         });
     });
 });
+
+function afficher_stock(){
+
+}
 
