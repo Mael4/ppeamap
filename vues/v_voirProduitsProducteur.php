@@ -56,7 +56,7 @@
 									<form method='post' action='index.php?uc=gestionPanierProducteur&action=Modifier&idProduit=".$produit['id']."&libelleProduit=".$produit['libelle']."&descriptionProduit=".$produit['description']."&prixProduit=".$produit['prixunitaire']."'>
 										<input type='submit' id='button_produit".$produit['id']."' class='form-control input-sm' value='Modifier Produit'></input>
 									</form>
-                                                                        <form method='post' action='index.php?uc=gestionPanierProducteur&action=Suprimer&idProduit=".$produit['id']."&libelleProduit=".$produit['libelle']."&descriptionProduit=".$produit['description']."&prixProduit=".$produit['prixunitaire']."'>
+                                                                        <form method='post' action='index.php?uc=gestionPanierProducteur&action=Suprimer&idProduit=".$produit['id']."'>
 										<input type='submit' id='button_produit".$produit['id']."' class='form-control input-sm' value='Supprimer Produit'></input>
 									</form>
 								</div>
