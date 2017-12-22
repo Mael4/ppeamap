@@ -27,6 +27,19 @@ function get_produit($uneCateg) //donne tous les produit ou seulement ceux d'une
     return $produits;
 }
 
+function get_unProduit($unIdProduit) //donne tous les produit ou seulement ceux d'une categ
+{
+    global $bdd;
+	$unIdProduit = (int) $unIdProduit;
+
+	{$req = "SELECT * FROM produit WHERE produit.id = '".$unIdProduit."' ";}
+	$req = $bdd->prepare($req);
+    $req->execute();
+    $produits = $req->fetchAll();
+
+    return $produits;
+}
+
 function verifQteProduit($libelle, $qte)
 {
 	global $bdd;

@@ -33,7 +33,6 @@
 						
 							<div class='row'>
 								<div class='well well-sm' id='libelle_produit".$produit['id']."'>".$produit['libelle']."
-                                                                
 								</div>
 							</div>
 							
@@ -58,19 +57,14 @@
 						
 								<div class='col-12 col-sm-6 well'>
 									<div class='col-sm-6' id='pu_produit".$produit['id']."'>Prix au kilo:".$produit['prixunitaire']." euros.
-                                                                        
-								</div>
-								<div class='col-sm-6' id='quantite_produit".$produit['id']."'>Stock : ".$produit['quantite']." kilogramme(s)
-                                                            
-                                                             
-                                                                   </div>
-                          
+									</div>
+								<div class='col-sm-6' id='quantite_produit".$produit['id']."'>".$produit['quantite']." kilogramme(s)</div></div>
 							</div>
 					</div>";
 					
 				}
                                 }
-                                if (!isset($_SESSION['id_Type_prducteur'])) {
+                                if (!isset($_SESSION['id_Type_producteur'])) {
 				foreach($produits as $cle => $produit)
 				{
 					

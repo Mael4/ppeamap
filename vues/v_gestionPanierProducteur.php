@@ -31,82 +31,55 @@
 					
 				echo "<div class='col-12 col-sm-10 well'>
 						
-							<div class='row'>
-								<div class='well well-sm' id='libelle_produit".$produit['id']."'>".$produit['libelle']."
+                                            <div class='row'>
+						<div class='well well-sm' id='libelle_produit".$produit['id']."'>
+                                                    Libellé produit: <input type='text' class='form-control' id='prix' placeholder=".$produit['libelle']."></input>
                                                                 
-								</div>
-							</div>
+                                            </div>
+                                        
+                                            </div>
 							
-							<div class='row'>
-                                                        <form method='GET' action='c_GestionPanierProducteur.php'>
-								<div class='col-12'>
-									<div class='col-12 col-sm-6 col-md-4 well well-sm'>
-										<img class='imageproduit img-rounded' src= 'img/produits/".mb_strtolower($produit['libelle']).".jpg' alt='' />
-									</div>
+                                            <div class='row'>
+                                                    <form method='GET' action='c_GestionPanierProducteur.php'>
+							<div class='col-12'>
+								<div class='col-12 col-sm-6 col-md-4 well well-sm'>
+									<img class='imageproduit img-rounded' src= 'img/produits/".mb_strtolower($produit['libelle']).".jpg' alt='' />
+								</div>
 								
-									<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description_produit".$produit['id']."'>Description:<br/><textarea name='Description' id='Desc' rows='10' cols='50'>  </textarea></div>
-								</div>
-							</div>
+								<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description_produit".$produit['id']."'>Description:<br/><textarea class='form-control' rows='5' id='Desc' placeholder='".$produit['description']."'></textarea>  
+                                                               
+                                                                </div>
+                                                                
+								
+                                                        </div>
+					    </div>
 					
-							<div class='row'>
-								<div class='col-12 col-sm-6 well well-sm'>
-									<form method='post' action='index.php?uc=gestionPanier&action=ajouter&idProduit=".$produit['id']."&libelleProduit=".$produit['libelle']."&descriptionProduit=".$produit['description']."&prixProduit=".$produit['prixunitaire']."'>
-										<input type='number' value=1 id='qte_produit' class='form-control input-sm' name='qte_produit' min='1'>
-										<input type='submit' id='button_produit".$produit['id']."' class='form-control input-sm' value='Ajouter au panier'></input>
-									</form>
-								</div>
+                                            <div class='row'>
+                                                    <div class='col-12 col-sm-6 well well-sm'>
+                                                            <form method='post' action='index.php?uc=gestionPanier&action=ajouter&idProduit=".$produit['id']."&libelleProduit=".$produit['libelle']."&descriptionProduit=".$produit['description']."&prixProduit=".$produit['prixunitaire']."'>
+                                                                    <input type='number' value=1 id='qte_produit' class='form-control input-sm' name='qte_produit' min='1'>
+                                                                    <input type='submit' id='button_produit".$produit['id']."' class='form-control input-sm' value='Ajouter au panier'></input>
+                                                            </form>
+                                                    </div>
 							
 						
-								<div class='col-12 col-sm-6 well'>
-									<div class='col-sm-6' id='pu_produit".$produit['id']."'>Prix au kilo:".$produit['prixunitaire']." euros.
-                                                                        
-								</div>
-								<div class='col-sm-6' id='quantite_produit".$produit['id']."'>Stock : ".$produit['quantite']." kilogramme(s)
+                                                    <div class='col-12 col-sm-6 well'>
+                                                            <div class='col-sm-6' id='pu_produit".$produit['id']."'>Prix au kilo:  <input type='text' class='form-control' id='prix' placeholder=".$produit['prixunitaire']."></input> euros.
                                                             
-                                                             
-                                                                   </div>
+                                                            </div>
+								
+                                                            <div class='col-sm-6' id='quantite_produit".$produit['id']."'>Stock : <input type='text' class='form-control' id='stock' placeholder=".$produit['quantite']."></input>  kilogramme(s)
+                                                            
+                                                            </div>
                           
-							</div>
-					</div>
+                                                    </div>
+                                            </div>
+                                    </div>
                                         </form>";
 					
 				}
                                 }
-                                if (!isset($_SESSION['id_Type_prducteur'])) {
-				foreach($produits as $cle => $produit)
-				{
-					
-				echo "<div class='col-12 col-sm-10 well'>
-						
-							<div class='row'>
-								<div class='well well-sm' id='libelle_produit".$produit['id']."'>".$produit['libelle']."
-                                                
-								</div>
-							</div>
-							
-							<div class='row'>
-								<div class='col-12'>
-									<div class='col-12 col-sm-6 col-md-4 well well-sm'>
-										<img class='imageproduit img-rounded' src= 'img/produits/".mb_strtolower($produit['libelle']).".jpg' alt='' />
-									</div>
-								
-									<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description_produit".$produit['id']."'>Description:<br/>".$produit['description']."</div>
-								</div>
-							</div>
-					
-							<div class='row'>
-								
-							
-						
-								<div class='col-12 col-sm-6 well'>
-									<div class='col-sm-6' id='pu_produit".$produit['id']."'>Prix au kilo:".$produit['prixunitaire']." euros.
-									</div>
-								<div class='col-sm-6' id='quantite_produit".$produit['id']."'>Stock : ".$produit['quantite']." kilogramme(s)</div></div>
-							</div>
-					</div>";
-					
-				}
-                                }
+                               
                                 
 			?>
 			
