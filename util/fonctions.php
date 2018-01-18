@@ -189,6 +189,29 @@ function set_compte($login, $nom, $prenom, $adresse, $mail, $tel, $cp, $ville, $
 		'type' => $type));
 }
 
+//modifier un article
+function modifierArticleBD($idProduit, $description, $prix, $idCategorie)
+{
+    global $bdd;
+    $req = $bdd->prepare("UPDATE produit SET id_categorie= :categorie,
+                                             prixunitaire= :prix,
+                                             quantite= :qtt,
+                                             description= :description,
+                                             WHERE id= :id');");
+ $req->execute(array(
+    	
+    	'prix' => $prix,
+    	'categorie' =>$idCategorie,
+    	'description' => $description,
+    	'id' => $idProduit
+    ));
+
+
+
+	return true;
+
+}
+
 function creerArticleBD($description, $prix, $idCategorie)
 {
 	$req = $bdd->prepare("INSERT INTO produit(description, prix, idCategorie)
