@@ -70,7 +70,7 @@
                                                                             <!-- image-preview-input -->
                                                                             <div class='btn btn-default image-preview-input'>
                                                                                 <span class='glyphicon glyphicon-folder-open'></span>
-                                                                                <span class='image-preview-input-title'>Chercher</span>
+                                                                                <span class='image-preview-input-title'>Choisir</span>
                                                                                 <input type='file' accept='image/png, image/jpeg, image/gif' name='input-file-preview'/> <!-- rename it -->
                                                                             </div>
                                                                         </span>
