@@ -25,7 +25,7 @@
 		  <div class="col-sm-10 col-xs-12">
 			<?php
 				
-				if (!isset($_SESSION['id_Type_utilisateur'])) {
+				if (!isset($_SESSION['id_Type_consomateur'])) {
 				foreach($produits as $cle => $produit)
 				{
 					
@@ -39,7 +39,7 @@
 							<div class='row'>
 								<div class='col-12'>
 									<div class='col-12 col-sm-6 col-md-4 well well-sm'>
-										<img class='imageproduit img-rounded' src= 'img/produits/".mb_strtolower($produit['libelle']).".jpg' alt='' />
+										<img class='imageproduit img-rounded' src= 'img/produits/".mb_strtolower($produit['nom_image']).".jpg' alt='' />
 									</div>
 								
 									<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description_produit".$produit['id']."'>Description:<br/>".$produit['description']."</div>
@@ -79,7 +79,7 @@
 							<div class='row'>
 								<div class='col-12'>
 									<div class='col-12 col-sm-6 col-md-4 well well-sm'>
-										<img class='imageproduit img-rounded' src= 'img/produits/".mb_strtolower($produit['libelle']).".jpg' alt='' />
+										<img class='imageproduit img-rounded' src= 'img/produits/".mb_strtolower($produit['nom_image'])."' alt='' />
 									</div>
 								
 									<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description_produit".$produit['id']."'>Description:<br/>".$produit['description']."</div>

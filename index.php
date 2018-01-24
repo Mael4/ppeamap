@@ -49,6 +49,9 @@ switch($uc)
             
         case 'modificationDeProduit' :
            {include("controleurs/c_modificationDeProduit.php");break;}
+           
+        case 'AjoutDeProduit' :
+           {include("controleurs/c_AjoutDeProduit.php");break;}
 }       
 
 include("vues/v_pied.php") ;
