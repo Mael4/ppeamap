@@ -18,6 +18,10 @@
 			  
 				<?php
 					echo "<div class='well well-sm'><p>".count($produits)." produit(s)</p></div>";
+                                        echo "<form method='post' action='index.php?uc=gestionPanierProducteur&action=Ajouter'>
+										<input type='submit' id='button_Ajouterproduit' class='form-control input-sm' value='Ajouter un Produit'></input>
+									</form>";
+                                        
 				?>
 			</div>
 			
@@ -38,7 +42,7 @@
 							<div class='row'>
 								<div class='col-12'>
 									<div class='col-12 col-sm-6 col-md-4 well well-sm'>
-										<img class='imageproduit img-rounded' src= 'img/produits/".mb_strtolower($produit['libelle']).".jpg' alt='' />
+										<img class='imageproduit img-rounded' src= 'img/produits/".mb_strtolower($produit['nom_image'])."' alt='' />
 									</div>
 								
 									<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description_produit".$produit['id']."'>Description:<br/>".$produit['description']."</div>
