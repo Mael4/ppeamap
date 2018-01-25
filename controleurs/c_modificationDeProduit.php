@@ -14,7 +14,7 @@ $test=0;
   if ($_FILES['input-file-preview']['error'] > 0) $erreur = "Erreur lors du transfert";
 //récupération des variables
         $nomImg=$_FILES['input-file-preview']['name'] ;
-         var_dump($nomImg);
+         
         $tailleImg= $_FILES['input-file-preview']['size'] ;
 	$libelle=$_POST['libelle'];
         $prix=$_POST['prix'];
@@ -23,15 +23,18 @@ $test=0;
         $id=$_POST['id'];
         $extension_upload =   substr(  strrchr($_FILES['input-file-preview']['name'], '.')  ,1)  ;
         
+ //si l'utilisateur a envoyé  une image       
         if($nomImg!=''){
         
-        try{
+        
+            //création d'une clé unique pour l'image (évite les noms double
         $nomImgModifie = md5(uniqid(rand(), true));
+        //création du chemin de l'image
         $cheminImg = "img/produits/{$nomImgModifie}.{$extension_upload}";
-   
+        //ajout de l'image dans le dossier
         $resultat = move_uploaded_file($_FILES['input-file-preview']['tmp_name'],$cheminImg);
-        }catch(ErrorException $e){
-        }
+        
+
     
    
          global $bdd;
@@ -43,15 +46,18 @@ $test=0;
                                              WHERE id=".$id."");
    
               
-           
-         try{
-        $req->execute();
-       
-         }
+              $req->execute();
+         
       
-         catch(ErrorException $e){}
-          }
+      
+        
+       
+    }
+        
+          // sinon
           else{
+                 
+         
                        global $bdd;
         $req = $bdd->prepare("UPDATE produit SET libelle='".$libelle."',
                                              prixunitaire=".$prix.",
@@ -60,15 +66,14 @@ $test=0;
                                              WHERE id=".$id."");
    
               
-           
-         try{
+        
         $req->execute();
        
-         }
-      
-         catch(ErrorException $e){}
+
+       
+   
           }
-      
+     
 	include('vues/v_modificationDeProduit.php');
      
 ?>

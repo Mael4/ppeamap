@@ -1,4 +1,6 @@
 <div class="container">
+      
+        
 	<div class="row">
            
 			<!--<div class="sidebar-nav col-sm-2 col-12">
@@ -51,7 +53,7 @@
 					  	
                                             <div class='row'>
 						<div class='well well-sm' id='libelle_produit'>
-                                                    Libellé produit: <input type='text' class='form-control' value='' name='libelle' id='libe' placeholder=></input>
+                                                    Libellé produit: <input type='text' class='form-control' value='' name='libelle' id='libel' placeholder=></input>
                                                                 
                                             </div>
                                             
@@ -146,13 +148,13 @@
 					  	
                                             <div class='row'>
 						<div class='well well-sm' id='libelle_produit".$produit['id']."'>
-                                                    Libellé produit: <input type='text' class='form-control' value='".$produit['libelle']."' name='libelle' id='libe' placeholder=".$produit['libelle']."></input>
-                                                                
+                                                    Libellé produit: <input class='form-control' type='text'  value='".$produit['libelle']."' name='libe'  id='libe' onblur='checkLibe()' placeholder=".$produit['libelle']." ></input>
+                                                                      
                                             </div>
                                             
-                                              <input type='hidden' name='id' value=".$produit['id'].">
+                                           
                                             </div>
-							
+						   <input type='hidden' name='id' value=".$produit['id'].">	
                                             <div class='row'>
                                                   
 							<div class='col-12'>
@@ -160,7 +162,7 @@
 									<img class='imageproduit img-rounded'  src= 'img/produits/".mb_strtolower($produit['nom_image'])."' alt='' />
 								</div>
 								
-								<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description".$produit['id']."'>Description:<br/><textarea class='form-control' rows='5' name='description'  id='Desc'>".$produit['description']."</textarea>  
+								<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description".$produit['id']."'>Description:<br/><textarea class='form-control' onblur='checkDesc()' rows='5' name='description'  id='Desc'>".$produit['description']."</textarea>  
                                                                
                                                                 </div>
                                                                 
@@ -193,11 +195,11 @@
 							
 						
                                                     <div class='col-12 col-sm-6 well'>
-                                                            <div class='col-sm-6' id='pu_produit".$produit['id']."'>Prix au kilo:  <input type='text' class='form-control'  value='".$produit['prixunitaire']."' name='prix' id='prix' placeholder=".$produit['prixunitaire']."></input> euros.
+                                                            <div class='col-sm-6' id='pu_produit".$produit['id']."'>Prix au kilo:  <input type='text' class='form-control'  value='".$produit['prixunitaire']."' name='prix' id='prix' onblur='checkPrix()' placeholder=".$produit['prixunitaire']." ></input> euros.
                                                             
                                                             </div>
 								
-                                                            <div class='col-sm-6' id='quantite_produit".$produit['id']."'>Stock : <input type='text' class='form-control' value='".$produit['quantite']."'  name='qtt' id='stock' placeholder=".$produit['quantite']."></input>  kilogramme(s)
+                                                            <div class='col-sm-6' id='quantite_produit".$produit['id']."'>Stock : <input type='text'  class='form-control' value='".$produit['quantite']."'  name='qtt' id='qtt' onblur='checkQtt()'  placeholder=".$produit['quantite']."></input>  kilogramme(s)
                                                             
                                                             </div>
                           
@@ -219,7 +221,8 @@
                                 }
 
 			?>
-			
+		
 		  </div>
+                        
 	</div>
-</div>
+</div> 
