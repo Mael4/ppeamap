@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 18 Janvier 2017 à 15:13
+-- Généré le :  Jeu 25 Janvier 2018 à 17:09
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `amap`
+-- Base de données :  `bdberrue`
 --
 
 -- --------------------------------------------------------
@@ -101,27 +101,28 @@ CREATE TABLE IF NOT EXISTS `produit` (
   `quantite` int(11) NOT NULL,
   `id_utilisateur` int(11) DEFAULT NULL,
   `id_categorie` int(11) DEFAULT NULL,
+  `nom_image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK_Produit_id_utilisateur` (`id_utilisateur`),
-  KEY `FK_Produit_id_categorie` (`id_categorie`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+  UNIQUE KEY `nom_image` (`nom_image`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Contenu de la table `produit`
 --
 
-INSERT INTO `produit` (`id`, `libelle`, `description`, `prixunitaire`, `quantite`, `id_utilisateur`, `id_categorie`) VALUES
-(1, 'Patate', 'des patates', 0.5, 850, 2, 1),
-(2, 'Pomme', 'des pommes', 0.7, 620, 2, 2),
-(3, 'abricot', 'Des abricots.', 2, 452, 2, 2),
-(4, 'cerise', 'Des cerises.', 0.4, 741, 2, 2),
-(5, 'asperge', 'Des asperges.', 0.8, 456, 2, 1),
-(6, 'betterave', 'Des betteraves.', 0.9, 963, 2, 1),
-(7, 'carotte', 'Des carottes.', 1, 123, 2, 1),
-(8, 'figue', 'Des figues', 1, 12, 2, 2),
-(9, 'kiwi', 'Des kiwis.', 1, 282, 2, 2),
-(10, 'laitue', 'Des laitues.', 1, 321, 2, 1),
-(11, 'pruneau', 'Des pruneaux', 1, 32, 2, 2);
+INSERT INTO `produit` (`id`, `libelle`, `description`, `prixunitaire`, `quantite`, `id_utilisateur`, `id_categorie`, `nom_image`) VALUES
+(1, 'Patate', 'des patates', 0.5, 850, 2, 1, '1'),
+(2, 'Pomme', 'des pommes', 0.7, 620, 2, 2, '2'),
+(3, 'abricot', 'Des abricots.', 200, 452, 2, 2, 'c0f1d146e78d72aacc6c1702f3bab234'),
+(4, 'cerise', 'Des cerises.', 0.4, 741, 2, 2, '4'),
+(5, 'asperge', 'Des asperges.', 0.8, 456, 2, 1, '60e9e138ca71a8c5ace7e5e18e3ca676'),
+(6, 'betterave2', 'Des betteraves.', 0.9, 963, 2, 1, '6'),
+(7, 'carotte', 'Des carottes.', 1, 123, 2, 1, '7'),
+(8, 'figue', 'Des figues', 1, 12, 2, 2, '8'),
+(9, 'kiwi', 'Des kiwis.', 1, 282, 2, 2, '9'),
+(10, 'laitue', 'Des laitues.', 1, 321, 2, 1, '10'),
+(11, 'pruneau', 'Des pruneaux', 1, 32, 2, 2, '11'),
+(12, 'Coucou', 'Test', 12, 4, 2, 1, '');
 
 -- --------------------------------------------------------
 
@@ -188,43 +189,6 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `adresse`, `mail`, `tel`, `cod
 (1, 'Fouque', 'Patrice', '52 rue jesaispas', 'jesaispas@gmail.com', 631313131, 45000, 'Orléans', 'mdp', 'Patrice', 1),
 (2, 'Trassard', 'Robin', 'une autre rue pour tester la modification :)', 'jesaispas@gmail.com', 632323232, 45000, 'Orlï¿½ans', 'mdp', 'Robin', 2),
 (3, 'Benardeau', 'Quentin', '54 rue jesaispas', 'jesaispas@gmail.com', 633333333, 45000, 'Orlï¿½ans', 'mdp', 'Quentin', 3);
-
---
--- Contraintes pour les tables exportées
---
-
---
--- Contraintes pour la table `colis`
---
-ALTER TABLE `colis`
-  ADD CONSTRAINT `FK_colis_id_Produit` FOREIGN KEY (`id_Produit`) REFERENCES `produit` (`id`),
-  ADD CONSTRAINT `FK_colis_id` FOREIGN KEY (`id_livraison`) REFERENCES `livraison` (`id`);
-
---
--- Contraintes pour la table `livraison`
---
-ALTER TABLE `livraison`
-  ADD CONSTRAINT `FK_livraison_id_utilisateur` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`);
-
---
--- Contraintes pour la table `produit`
---
-ALTER TABLE `produit`
-  ADD CONSTRAINT `FK_Produit_id_categorie` FOREIGN KEY (`id_categorie`) REFERENCES `categorie` (`id`),
-  ADD CONSTRAINT `FK_Produit_id_utilisateur` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`);
-
---
--- Contraintes pour la table `ravitailler`
---
-ALTER TABLE `ravitailler`
-  ADD CONSTRAINT `FK_ravitailler_id_utilisateur` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`),
-  ADD CONSTRAINT `FK_ravitailler_id` FOREIGN KEY (`id`) REFERENCES `produit` (`id`);
-
---
--- Contraintes pour la table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  ADD CONSTRAINT `FK_utilisateur_id_Type_utilisateur` FOREIGN KEY (`id_Type_utilisateur`) REFERENCES `type_utilisateur` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

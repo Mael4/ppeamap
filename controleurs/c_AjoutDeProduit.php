@@ -20,8 +20,10 @@ $categories = get_categ();
         $qtt=$_POST['qtt'];
         $description=$_POST['description'];
         $id=$_SESSION['id'];
-         global $bdd;
-        $req = $bdd->prepare("INSERT INTO produit ( libelle, description, prixunitaire, quantite, id_utilisateur, id_categorie) VALUES ( $libelle, $description, $prix, $qtt, $id, $categorie);");
+        $message="INSERT INTO produit ( libelle, description, prixunitaire, quantite, id_utilisateur, id_categorie) VALUES ( "."'"."$libelle"."'".","."'"."$description"."'".", $prix, $qtt, $id, $categories);";
+        echo"<p>".$message."</p>";
+        global $bdd;
+        $req = $bdd->prepare("INSERT INTO produit ( libelle, description, prixunitaire, quantite, id_utilisateur, id_categorie) VALUES ("."'"."$libelle"."'".","."'"."$description"."'".", $prix, $qtt, $id, $categories);");
       
               
            
