@@ -47,7 +47,7 @@ switch($uc)
  
             {include("controleurs/c_GestionPanierProducteur.php");break;}
  
-            
+            /**test**/
  
        case 'modificationDeProduit' :
  
