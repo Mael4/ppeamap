@@ -21,7 +21,7 @@ $categories = get_categ();
         $description=$_POST['description'];
         $id=$_SESSION['id'];
          global $bdd;
-        $req = $bdd->prepare("INSERT INTO produit ( libelle, description, prixunitaire, quantite, id_utilisateur, id_categorie) VALUES ( $libelle, $description, $prix, $qtt, '2', $categories);");
+        $req = $bdd->prepare("INSERT INTO produit ( libelle, description, prixunitaire, quantite, id_utilisateur, id_categorie) VALUES ( $libelle, $description, $prix, $qtt, $id, $categorie);");
       
               
            
