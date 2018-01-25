@@ -27,7 +27,7 @@ switch($action)
 		$description=$_REQUEST['description'];
 		$prix=$_REQUEST['prix'];
 		$idCategorie=$_REQUEST['categorie'];
-		$pdo->modifierArticleBD($idProduit, $description, $prix, $idCategorie);
+		 modifierArticleBD($idProduit, $description, $prix, $idCategorie);
 		header("location: index.php?uc=voirProduits&categorie=com&action=voirProduits");
 		break;
 	}
