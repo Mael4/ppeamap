@@ -42,6 +42,7 @@ switch($action)
 	}
 	case 'connexion' :
 	{
+                supprimePanier();
 		include_once('vues/v_connexionProducteur.php');
 		break;
 	}
