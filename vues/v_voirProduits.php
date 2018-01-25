@@ -66,6 +66,7 @@
                                                                    </div>
                           
 							</div>
+                                                        </div>
 					</div>";
 					
 				}
@@ -101,6 +102,7 @@
 									</div>
 								<div class='col-sm-6' id='quantite_produit".$produit['id']."'>Stock : ".$produit['quantite']." kilogramme(s)</div></div>
 							</div>
+                                                        </div>
 					</div>";
 					
 				}
