@@ -19,13 +19,15 @@
 				$qte = $_SESSION['panier']['qteProduit'][$i];
 				
 				$testProduits = verifQteProduit($libelle, $qte);
+                                
 			}
 			
 			if ($testProduits == true)//si tous les produits OK
 			{
 				$idLivraison = nouvLivraison($_SESSION['id']);//creer la nouvelle livraison et recupere son id
-				
-				
+
+                                $idLivraison = $idLivraison['0']['max(id)'];
+                               
 				$nbArticles = compterArticles();
 				for ($i=0 ;$i < $nbArticles ; $i++)//pour chaque article du panier
 				{
@@ -33,7 +35,8 @@
 					$quantiteProd = $_SESSION['panier']['qteProduit'][$i];
 					$idProduit = $_SESSION['panier']['idProduit'][$i];
 					
-					nouvColis($montantTotal, $idLivraison, $quantiteProd, $idProduit);
+					$retour=nouvColis($montantTotal, $idLivraison, $quantiteProd, $idProduit);
+                                        //echo($retour);
 				}
 				
 				echo "livraison OK";

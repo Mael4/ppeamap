@@ -354,25 +354,28 @@ function supprimePanier()
 function nouvLivraison($unIdUtil)
 {
 	global $bdd;
-	$req = $bdd->exec("INSERT INTO livraison ('id_utilisateur') VALUES (".$unIdUtil.")");
-
-	var_dump($req);
-	var_dump($bdd->lastInsertId());
-	return $bdd->lastInsertId();
+	$req = $bdd->exec("INSERT INTO livraison (id_utilisateur) VALUES (".$unIdUtil.")");
+        
+        $req = $bdd->prepare('SELECT max(id) FROM livraison');
+        $req->execute();
+        $idLivraison = $req->fetchAll();
+	//var_dump($req);
+	//var_dump($bdd->lastInsertId());
+	return $idLivraison;
 }
 
 function nouvColis($montantTotal, $idLivraison, $quantiteProd, $idProduit)
 {
 	global $bdd;
-	$req = $bdd->prepare("INSERT INTO colis ('montanttotal','id_livraison','quantite','id_produit') VALUES (:montant, :idLiv, :qte, :idProd)");
-        var_dump($req);
-	$req->execute(array(
+	$req = $bdd->exec("INSERT INTO colis (montanttotal,id_livraison,quantite,id_produit) VALUES ('$montantTotal', '$idLivraison', '$quantiteProd', '$idProduit')");
+        //var_dump($req);
+	/*$req->execute(array(
 		'montant' => $montantTotal,
 		'idLiv' => $idLivraison,
 		'qte' => $quantiteProd,
 		'idProd' => $idProduit
 		)
-	);
+	);*/
 
-	return true;
+	return "INSERT INTO colis (montanttotal,id_livraison,quantite,id_produit) VALUES ('$montantTotal', '$idLivraison', '$quantiteProd', '$idProduit')";
 }
