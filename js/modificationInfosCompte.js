@@ -1,7 +1,7 @@
 ﻿var letters = /^[A-zÀ-ÿ]+([A-zÀ-ÿ- ')]*[A-zÀ-ÿ])*$/;
-var numbers = /^[0-9]+$/;
+var numbers = /^[0-9]*[.][0-9]+$|^[0-9]+$/;
 var regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
+var float = /^[0-9]*[.][0-9]+$/;
 function checkLastName()
 {
 	var error = false;
@@ -246,3 +246,124 @@ function resetColors()
 		document.getElementsByClassName("reset")[i].style.boxShadow = "initial";
 	}
 }
+function checkPrix()
+{
+   var error = false;
+	var prix = document.querySelector('[id^="prix"]');
+	 if( prix.value != "" && !prix.value.match(numbers) )
+	{
+		error = true;
+		document.querySelector('[id^="prix"]').style.borderColor = "rgba(255, 0, 0, 1)";
+		document.querySelector('[id^="prix"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
+		alert("Votre prix doit ne doit comprendre que des chiffres");
+	}
+        if( prix.value == ""){
+		error = true;
+		document.querySelector('[id^="prix"]').style.borderColor = "rgba(255, 0, 0, 1)";
+		document.querySelector('[id^="prix"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
+		alert("Vous devez indiquer un prix");
+	}
+	else if ( prix.value === "" || error == false )
+	{
+		document.querySelector('[id^="prix"]').style.border = "1px solid #CCC";
+		document.querySelector('[id^="prix"]').style.boxShadow = "initial";
+	}
+    
+};
+function checkQtt()
+{
+   var error = false;
+	var qtt = document.querySelector('[id^="qtt"]');
+	 if( qtt.value != "" && !qtt.value.match(numbers) )
+	{
+		error = true;
+		document.querySelector('[id^="qtt"]').style.borderColor = "rgba(255, 0, 0, 1)";
+		document.querySelector('[id^="qtt"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
+		alert("Votre quantité doit ne doit comprendre que des chiffres");
+	} if( qtt.value == ""){
+		error = true;
+		document.querySelector('[id^="qtt"]').style.borderColor = "rgba(255, 0, 0, 1)";
+		document.querySelector('[id^="qtt"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
+		alert("Vous devez indiquer une quantité");
+	}
+	else if ( prix.value != "" || error == false )
+	{
+		document.querySelector('[id^="qtt"]').style.border = "1px solid #CCC";
+		document.querySelector('[id^="qtt"]').style.boxShadow = "initial";
+	}
+    
+};
+
+function checkDesc()
+{
+   var error = false;
+	var Desc = document.querySelector('[id^="Desc"]');
+           
+	 if( Desc.value == ""){
+		error = true;
+		document.querySelector('[id^="Desc"]').style.borderColor = "rgba(255, 0, 0, 1)";
+		document.querySelector('[id^="Desc"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
+		alert("Vous devez écrire une description");
+	}
+	else if ( Desc.value != "" || error == false )
+	{
+		document.querySelector('[id^="Desc"]').style.border = "1px solid #CCC";
+		document.querySelector('[id^="Desc"]').style.boxShadow = "initial";
+	}
+    
+};
+function checkLibe()
+{
+   var error = false;
+	var libe = document.querySelector('[id^="libe"]');
+           
+	 if( libe.value == ""){
+		error = true;
+		document.querySelector('[id^="libe"]').style.borderColor = "rgba(255, 0, 0, 1)";
+		document.querySelector('[id^="libe"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
+		alert("Vous devez écrire une description");
+	}
+	else if ( libe.value != "" || error == false )
+	{
+		document.querySelector('[id^="libe"]').style.border = "1px solid #CCC";
+		document.querySelector('[id^="libe"]').style.boxShadow = "initial";
+	}
+    
+};
+function checkSubmitModificationPrix()
+{
+	var error = false;
+
+	if ( document.querySelector('[id^="libe"]').value == "" || document.querySelector('[id^="libe"]').value.length < 2 || !document.querySelector('[id^="libe"]').value.match(letters) )
+	{
+		document.querySelector('[id^="libe"]').style.borderColor = "rgba(255, 0, 0, 1)";
+		document.querySelector('[id^="libe"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
+		error = true;
+	}
+
+	if ( document.querySelector('[id^="Desc"]').value == "" || document.querySelector('[id^="Desc"]').value.length < 2 || !document.querySelector('[id^="Desc"]').value.match(letters) )
+	{
+		document.querySelector('[id^="Desc"]').style.borderColor = "rgba(255, 0, 0, 1)";
+		document.querySelector('[id^="Desc"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
+		error = true;
+	}
+
+	if ( document.querySelector('[id^="prix"]').value == "" )
+	{
+		document.querySelector('[id^="prix"]').style.borderColor = "rgba(255, 0, 0, 1)";
+		document.querySelector('[id^="prix"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
+		error = true;
+	}
+
+	if ( document.querySelector('[id^="qtt"]').value =="" )
+	{
+		document.querySelector('[id^="qtt"]').style.borderColor = "rgba(255, 0, 0, 1)";
+		document.querySelector('[id^="qtt"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
+		error = true;
+	}
+
+	else
+	{
+		return true;
+	}
+};

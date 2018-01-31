@@ -1,4 +1,6 @@
 <div class="container">
+      
+        
 	<div class="row">
            
 			<!--<div class="sidebar-nav col-sm-2 col-12">
@@ -169,6 +171,45 @@
 					    </div>
 				<!-- upload img -->
                                             <div class='row'>
+						<div class='col-12 col-sm-6 well well-sm'>
+                                                    Catégorie Produit: 
+                                                    <select class='form-control'>";
+                                                    
+					foreach($categories as $categorie)
+					{
+						echo "<option value=".$categorie['id'].">".$categorie['libelle']."</option>";
+					}
+                  
+                                         
+                                            echo "</select>
+                                             </div>                   
+                                            </div>
+					  	
+                                            <div class='row'>
+						<div class='well well-sm' id='libelle_produit".$produit['id']."'>
+                                                    Libellé produit: <input class='form-control' type='text'  value='".$produit['libelle']."' name='libe'  id='libe' onblur='checkLibe()' placeholder=".$produit['libelle']." ></input>
+                                                                      
+                                            </div>
+                                            
+                                           
+                                            </div>
+						   <input type='hidden' name='id' value=".$produit['id'].">	
+                                            <div class='row'>
+                                                  
+							<div class='col-12'>
+								<div class='col-12 col-sm-6 col-md-4 well well-sm'>
+									<img class='imageproduit img-rounded'  src= 'img/produits/".mb_strtolower($produit['nom_image'])."' alt='' />
+								</div>
+								
+								<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description".$produit['id']."'>Description:<br/><textarea class='form-control' onblur='checkDesc()' rows='5' name='description'  id='Desc'>".$produit['description']."</textarea>  
+                                                               
+                                                                </div>
+                                                                
+								
+                                                        </div>
+					    </div>
+				<!-- upload img -->
+                                            <div class='row'>
                                                     <div class='col-12 col-sm-6 well well-sm'>
                                                     <!-- image-preview-filename input [CUT FROM HERE]-->
                                                                     <div class='input-group image-preview'>
@@ -219,7 +260,8 @@
                                 }
 
 			?>
-			
+		
 		  </div>
+                        
 	</div>
 </div>

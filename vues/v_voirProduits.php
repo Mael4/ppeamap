@@ -25,7 +25,7 @@
 		  <div class="col-sm-10 col-xs-12">
 			<?php
 				
-				if (!isset($_SESSION['id_Type_utilisateur'])) {
+				if (!isset($_SESSION['id_Type_consomateur'])) {
 				foreach($produits as $cle => $produit)
 				{
 					
