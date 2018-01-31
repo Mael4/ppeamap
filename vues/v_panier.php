@@ -64,7 +64,7 @@
 						<input class='form-control' type='submit' value='Vider panier'>
 					 </form>
 					 <form method='post' action='index.php?uc=passerCommande'>
-                                                <input type='hidden' name='montantTotal' value=".$produit['id'].">
+                                                
 						<input class='form-control' type='submit' value='Passer commande'>
 					 </form>";
 
