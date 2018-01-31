@@ -29,7 +29,7 @@
 					echo "<tr>";
 					
 					echo "<td>
-							<img class='imageproduit' src= 'img/produits/".mb_strtolower($_SESSION['panier']['libelleProduit'][$i]).".jpg' alt='' />
+							<img class='imageproduit' src= 'img/produits/".mb_strtolower($_SESSION['panier']['libelleProduit'][$i])."' alt='' />
 						</td>";
 					
 					echo "<td>".$_SESSION['panier']['libelleProduit'][$i]."</ td>";
@@ -64,6 +64,7 @@
 						<input class='form-control' type='submit' value='Vider panier'>
 					 </form>
 					 <form method='post' action='index.php?uc=passerCommande'>
+                                                <input type='hidden' name='montantTotal' value=".$produit['id'].">
 						<input class='form-control' type='submit' value='Passer commande'>
 					 </form>";
 

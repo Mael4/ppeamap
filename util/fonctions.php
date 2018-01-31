@@ -365,7 +365,7 @@ function nouvColis($montantTotal, $idLivraison, $quantiteProd, $idProduit)
 {
 	global $bdd;
 	$req = $bdd->prepare("INSERT INTO colis ('montanttotal','id_livraison','quantite','id_produit') VALUES (:montant, :idLiv, :qte, :idProd)");
-
+        var_dump($req);
 	$req->execute(array(
 		'montant' => $montantTotal,
 		'idLiv' => $idLivraison,

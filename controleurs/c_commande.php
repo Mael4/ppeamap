@@ -25,7 +25,7 @@
 			{
 				$idLivraison = nouvLivraison($_SESSION['id']);//creer la nouvelle livraison et recupere son id
 				
-				echo $idLivraison;
+				
 				$nbArticles = compterArticles();
 				for ($i=0 ;$i < $nbArticles ; $i++)//pour chaque article du panier
 				{
@@ -42,7 +42,7 @@
 			{
 				echo "erreur de tes morts!";
 				//erreur qte produit
-				echo $testProduits;
+				
 			}
 		}
 		

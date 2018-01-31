@@ -14,6 +14,9 @@ $categories = get_categ();
 	}
 	include('vues/v_ajoutProduit.php');
 
+	include('vues/v_ajoutProduit.php');
+
+
         $categories=$_POST['categorie'];
 	$libelle=$_POST['libelle'];
         $prix=$_POST['prix'];

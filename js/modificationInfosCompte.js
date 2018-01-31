@@ -316,8 +316,9 @@ function checkLibe()
 {
    var error = false;
 	var libe = document.querySelector('[id^="libe"]');
-           
+           alert(libe.value);
 	 if( libe.value == ""){
+          
 		error = true;
 		document.querySelector('[id^="libe"]').style.borderColor = "rgba(255, 0, 0, 1)";
 		document.querySelector('[id^="libe"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
@@ -334,34 +335,36 @@ function checkSubmitModificationPrix()
 {
 	var error = false;
 
-	if ( document.querySelector('[id^="libe"]').value == "" || document.querySelector('[id^="libe"]').value.length < 2 || !document.querySelector('[id^="libe"]').value.match(letters) )
-	{
-		document.querySelector('[id^="libe"]').style.borderColor = "rgba(255, 0, 0, 1)";
-		document.querySelector('[id^="libe"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
-		error = true;
-	}
+	
 
-	if ( document.querySelector('[id^="Desc"]').value == "" || document.querySelector('[id^="Desc"]').value.length < 2 || !document.querySelector('[id^="Desc"]').value.match(letters) )
+	if ( document.querySelector('[id^="Desc"]').value == "" || document.querySelector('[id^="Desc"]').value.length < 2  )
 	{
 		document.querySelector('[id^="Desc"]').style.borderColor = "rgba(255, 0, 0, 1)";
 		document.querySelector('[id^="Desc"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
 		error = true;
 	}
 
-	if ( document.querySelector('[id^="prix"]').value == "" )
+	if ( document.querySelector('[id^="prix"]').value == "" ||  document.querySelector('[id^="prix"]').value.match(numbers) )
 	{
 		document.querySelector('[id^="prix"]').style.borderColor = "rgba(255, 0, 0, 1)";
 		document.querySelector('[id^="prix"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
 		error = true;
 	}
 
-	if ( document.querySelector('[id^="qtt"]').value =="" )
+	if ( document.querySelector('[id^="qtt"]').value =="" ||  document.querySelector('[id^="qtt"]').value.match(numbers)  )
 	{
 		document.querySelector('[id^="qtt"]').style.borderColor = "rgba(255, 0, 0, 1)";
 		document.querySelector('[id^="qtt"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
 		error = true;
 	}
 
+        if ( error == true )
+	{
+		alert("Champ(s) non rempli(s) ou incorrect(s) ");
+               
+		return false;
+              
+	}
 	else
 	{
 		return true;

@@ -2,6 +2,7 @@
 
 if($_REQUEST['action'] == "voir")
 {
+    
 	include("vues/v_panier.php");
 }
 elseif($_REQUEST['action'] == "supprimer")

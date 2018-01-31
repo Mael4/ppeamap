@@ -31,24 +31,26 @@
 			<?php
                                 if($_REQUEST['action']=="Ajouter"){
                                     if (!isset($_SESSION['id_Type_producteur'])) {
+
 					
+				
 				echo "
                                     <form method='post' action='index.php?uc=AjoutDeProduit' enctype='multipart/form-data'>
                                     <div class='col-12 col-sm-10 well'>
                                     
                                             <div class='row'>
-						
+						<div class='col-12 col-sm-6 well well-sm'>
                                                     Catégorie Produit: 
-                                                    <select name='categorie' id='categorie'>";
+                                                    <select class='form-control'>";
                                                     
 					foreach($categories as $categorie)
 					{
-						echo "<option value=".$categorie['id'].">".$categorie['libelle']."</option>";
+						echo "<option name='libelCat' value=".$categorie['id'].">".$categorie['libelle']."</option>";
 					}
                   
                                          
                                             echo "</select>
-                                                                
+                                             </div>                   
                                             </div>
 					  	
                                             <div class='row'>
@@ -73,7 +75,7 @@
 								
                                                         </div>
 					    </div>
-				<!-- upload img -->
+				
                                             <div class='row'>
                                                     <div class='col-12 col-sm-6 well well-sm'>
                                                     <!-- image-preview-filename input [CUT FROM HERE]-->
@@ -122,13 +124,14 @@
 					
 				}
                                 }
+                          
                                 else{
 				if (!isset($_SESSION['id_Type_producteur'])) {
 				foreach($produits as $cle => $produit)
 				{
 					
 				echo "
-                                    <form method='post' action='index.php?uc=modificationDeProduit' enctype='multipart/form-data'>
+                                    <form method='post' action='index.php?uc=modificationDeProduit' onsubmit='return checkSubmitModificationPrix()' enctype='multipart/form-data'>
                                     <div class='col-12 col-sm-10 well'>
                                     
                                             <div class='row'>
@@ -138,7 +141,7 @@
                                                     
 					foreach($categories as $categorie)
 					{
-						echo "<option value=".$categorie['id'].">".$categorie['libelle']."</option>";
+						echo "<option name='libelCat' value=".$categorie['id'].">".$categorie['libelle']."</option>";
 					}
                   
                                          
@@ -148,13 +151,13 @@
 					  	
                                             <div class='row'>
 						<div class='well well-sm' id='libelle_produit".$produit['id']."'>
-                                                    Libellé produit: <input type='text' class='form-control' value='".$produit['libelle']."' name='libelle' id='libe' placeholder=".$produit['libelle']."></input>
-                                                                
+                                                    Libellé produit: <input class='form-control' type='text'  value='".$produit['libelle']."' name='libe'  id='libe' onblur='checkLibe()' placeholder=".$produit['libelle']." ></input>
+                                                                      
                                             </div>
                                             
-                                              <input type='hidden' name='id' value=".$produit['id'].">
+                                           
                                             </div>
-							
+						   <input type='hidden' name='id' value=".$produit['id'].">	
                                             <div class='row'>
                                                   
 							<div class='col-12'>
@@ -162,7 +165,7 @@
 									<img class='imageproduit img-rounded'  src= 'img/produits/".mb_strtolower($produit['nom_image'])."' alt='' />
 								</div>
 								
-								<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description".$produit['id']."'>Description:<br/><textarea class='form-control' rows='5' name='description'  id='Desc'>".$produit['description']."</textarea>  
+								<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description".$produit['id']."'>Description:<br/><textarea class='form-control' onblur='checkDesc()' rows='5' name='description'  id='Desc'>".$produit['description']."</textarea>  
                                                                
                                                                 </div>
                                                                 
@@ -223,6 +226,8 @@
                                                                             <div class='btn btn-default image-preview-input'>
                                                                                 <span class='glyphicon glyphicon-folder-open'></span>
                                                                                 <span class='image-preview-input-title'>Choisir</span>
+
+
                                                                                 <input type='file' value='img/produits/".mb_strtolower($produit['nom_image'])."' accept='image/png, image/jpeg, image/gif' name='input-file-preview'/> <!-- rename it -->
                                                                             </div>
                                                                         </span>
@@ -234,14 +239,13 @@
 							
 						
                                                     <div class='col-12 col-sm-6 well'>
-                                                            <div class='col-sm-6' id='pu_produit".$produit['id']."'>Prix au kilo:  <input type='text' class='form-control'  value='".$produit['prixunitaire']."' name='prix' id='prix' placeholder=".$produit['prixunitaire']."></input> euros.
+                                         <div class='col-sm-6' id='pu_produit".$produit['id']."'>Prix au kilo:  <input type='text' class='form-control'  value='".$produit['prixunitaire']."' name='prix' id='prix' onblur='checkPrix()' placeholder=".$produit['prixunitaire']." ></input> euros.
                                                             
                                                             </div>
 								
-                                                            <div class='col-sm-6' id='quantite_produit".$produit['id']."'>Stock : <input type='text' class='form-control' value='".$produit['quantite']."'  name='qtt' id='stock' placeholder=".$produit['quantite']."></input>  kilogramme(s)
-                                                            
-                                                            </div>
-                          
+                                                            <div class='col-sm-6' id='quantite_produit".$produit['id']."'>Stock : <input type='text'  class='form-control' value='".$produit['quantite']."'  name='qtt' id='qtt' onblur='checkQtt()'  placeholder=".$produit['quantite']."></input>  kilogramme(s)
+
+                                                        
                                                     </div>
                                             </div>
                                            <div class='row'>
@@ -264,4 +268,6 @@
 		  </div>
                         
 	</div>
-</div>
+
+</div> 
+
