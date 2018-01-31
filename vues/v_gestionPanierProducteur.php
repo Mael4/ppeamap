@@ -35,13 +35,13 @@
 					
 				
 				echo "
-                                    <form method='post' action='index.php?uc=AjoutDeProduit' enctype='multipart/form-data'>
+                                    <form method='post' action='index.php?uc=AjoutDeProduit'  onsubmit='return checkSubmitModificationPrix()' enctype='multipart/form-data'>
                                     <div class='col-12 col-sm-10 well'>
                                     
                                             <div class='row'>
 						<div class='col-12 col-sm-6 well well-sm'>
                                                     Catégorie Produit: 
-                                                    <select class='form-control'>";
+                                                    <select class='form-control' name='libelCat'>";
                                                     
 					foreach($categories as $categorie)
 					{
@@ -55,7 +55,7 @@
 					  	
                                             <div class='row'>
 						<div class='well well-sm' id='libelle_produit'>
-                                                    Libellé produit: <input type='text' class='form-control' value='' name='libelle' id='libe' placeholder=></input>
+                                                    Libellé produit: <input type='text' class='form-control' value='' name='libelle' id='libe'  onblur='checkLibe()' placeholder=></input>
                                                                 
                                             </div>
                                             
@@ -68,7 +68,7 @@
 									<img class='imageproduit img-rounded' src='' alt='' />
 								</div>
 								
-								<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description'>Description:<br/><textarea class='form-control' rows='5' name='description'  id='Desc'></textarea>  
+								<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description'>Description:<br/><textarea class='form-control' rows='5' name='description' onblur='checkDesc()'  id='Desc'></textarea>  
                                                                
                                                                 </div>
                                                                 
@@ -101,11 +101,11 @@
 							
 						
                                                     <div class='col-12 col-sm-6 well'>
-                                                            <div class='col-sm-6' id='pu_produit'>Prix au kilo:  <input type='text' class='form-control'  value='' name='prix' id='prix' placeholder=></input> euros.
+                                                            <div class='col-sm-6' id='pu_produit'>Prix au kilo:  <input type='text' class='form-control'  value='' name='prix' id='prix' onblur='checkPrix()' placeholder=></input> euros.
                                                             
                                                             </div>
 								
-                                                            <div class='col-sm-6' id='quantite_produit'>Stock : <input type='text' class='form-control' value=''  name='qtt' id='stock' placeholder=></input>  kilogramme(s)
+                                                            <div class='col-sm-6' id='quantite_produit'>Stock : <input type='text' class='form-control' value=''  name='qtt' id='qtt' onblur='checkQtt()'  placeholder=></input>  kilogramme(s)
                                                             
                                                             </div>
                           
@@ -129,7 +129,15 @@
 				if (!isset($_SESSION['id_Type_producteur'])) {
 				foreach($produits as $cle => $produit)
 				{
-					
+   
+                                        $req = $bdd->prepare("select id_categorie from produit where id= ".$produit['id']."");
+                                      $resu=$req->execute();
+                                      $ligne=$req->fetch();
+                                      
+   
+                                  
+                                          
+                                     
 				echo "
                                     <form method='post' action='index.php?uc=modificationDeProduit' onsubmit='return checkSubmitModificationPrix()' enctype='multipart/form-data'>
                                     <div class='col-12 col-sm-10 well'>
@@ -139,48 +147,19 @@
                                                     Catégorie Produit: 
                                                     <select class='form-control'>";
                                                     
-					foreach($categories as $categorie)
-					{
-						echo "<option name='libelCat' value=".$categorie['id'].">".$categorie['libelle']."</option>";
-					}
-                  
-                                         
-                                            echo "</select>
-                                             </div>                   
-                                            </div>
-					  	
-                                            <div class='row'>
-						<div class='well well-sm' id='libelle_produit".$produit['id']."'>
-                                                    Libellé produit: <input class='form-control' type='text'  value='".$produit['libelle']."' name='libe'  id='libe' onblur='checkLibe()' placeholder=".$produit['libelle']." ></input>
-                                                                      
-                                            </div>
+					
                                             
-                                           
-                                            </div>
-						   <input type='hidden' name='id' value=".$produit['id'].">	
-                                            <div class='row'>
-                                                  
-							<div class='col-12'>
-								<div class='col-12 col-sm-6 col-md-4 well well-sm'>
-									<img class='imageproduit img-rounded'  src= 'img/produits/".mb_strtolower($produit['nom_image'])."' alt='' />
-								</div>
-								
-								<div class='col-12 col-sm-6 col-md-8 well well-sm' id='description".$produit['id']."'>Description:<br/><textarea class='form-control' onblur='checkDesc()' rows='5' name='description'  id='Desc'>".$produit['description']."</textarea>  
-                                                               
-                                                                </div>
-                                                                
-								
-                                                        </div>
-					    </div>
-				<!-- upload img -->
-                                            <div class='row'>
-						<div class='col-12 col-sm-6 well well-sm'>
-                                                    Catégorie Produit: 
-                                                    <select class='form-control'>";
-                                                    
+                                        $cpt=1;          
 					foreach($categories as $categorie)
 					{
-						echo "<option value=".$categorie['id'].">".$categorie['libelle']."</option>";
+                                           if($cpt==$ligne['id_categorie']){
+                                               echo "<option name='libelCat' selected='selected' value=".$categorie['id'].">".$categorie['libelle']."</option>";
+                                           }else{
+                                             
+						echo "<option name='libelCat' value=".$categorie['id'].">".$categorie['libelle']."</option>";
+                                           }
+                                           $cpt++;
+                                             
 					}
                   
                                          

@@ -246,6 +246,8 @@ function resetColors()
 		document.getElementsByClassName("reset")[i].style.boxShadow = "initial";
 	}
 }
+// Check formulaire Ajout et modification prix
+//controle  le champ prix
 function checkPrix()
 {
    var error = false;
@@ -270,6 +272,7 @@ function checkPrix()
 	}
     
 };
+//controle le champ quantité 
 function checkQtt()
 {
    var error = false;
@@ -293,7 +296,7 @@ function checkQtt()
 	}
     
 };
-
+//controle le champ description
 function checkDesc()
 {
    var error = false;
@@ -312,11 +315,12 @@ function checkDesc()
 	}
     
 };
+//contrôle le champ libélé
 function checkLibe()
 {
    var error = false;
 	var libe = document.querySelector('[id^="libe"]');
-           alert(libe.value);
+        
 	 if( libe.value == ""){
           
 		error = true;
@@ -331,6 +335,7 @@ function checkLibe()
 	}
     
 };
+//control avant submit
 function checkSubmitModificationPrix()
 {
 	var error = false;
@@ -344,14 +349,14 @@ function checkSubmitModificationPrix()
 		error = true;
 	}
 
-	if ( document.querySelector('[id^="prix"]').value == "" ||  document.querySelector('[id^="prix"]').value.match(numbers) )
+	if ( document.querySelector('[id^="prix"]').value == "" ||  !document.querySelector('[id^="prix"]').value.match(numbers) )
 	{
 		document.querySelector('[id^="prix"]').style.borderColor = "rgba(255, 0, 0, 1)";
 		document.querySelector('[id^="prix"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
 		error = true;
 	}
 
-	if ( document.querySelector('[id^="qtt"]').value =="" ||  document.querySelector('[id^="qtt"]').value.match(numbers)  )
+	if ( document.querySelector('[id^="qtt"]').value =="" ||  !document.querySelector('[id^="qtt"]').value.match(numbers)  )
 	{
 		document.querySelector('[id^="qtt"]').style.borderColor = "rgba(255, 0, 0, 1)";
 		document.querySelector('[id^="qtt"]').style.boxShadow = "0 0 8px rgba(255, 0, 0, 1)";
