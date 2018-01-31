@@ -43,6 +43,7 @@ $test=0;
 
    
          global $bdd;
+         //insertion des données dans la base
         $req = $bdd->prepare("UPDATE produit SET libelle='".$libelle."',
                                              prixunitaire=".$prix.",
                                              quantite=".$qtt.",
@@ -65,6 +66,7 @@ $test=0;
           else{
 
                        global $bdd;
+                       //insertion des données dans la base sans l'image
         $req = $bdd->prepare("UPDATE produit SET libelle='".$libelle."',
                                              prixunitaire=".$prix.",
                                              quantite=".$qtt.",

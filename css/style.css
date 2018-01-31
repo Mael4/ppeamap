@@ -2,7 +2,18 @@ h1, h3
 {
     text-align:center;
 }
-
+	
+.carousel {           
+      
+    overflow: hidden;
+}
+.carousel-caption{
+     font-size: 40px;
+}
+	
+.carousel img {
+    width: 100%;
+}
 h3
 {
     background-color:black;

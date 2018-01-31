@@ -39,11 +39,23 @@
                                         //echo($retour);
 				}
 				
-				echo "livraison OK";
+			?>
+        
+                            
+                                <div class="alert alert-success" role="alert">
+                                <h4 class="alert-heading">Commande enregistrée</h4>
+                                    <p>Merci votre commande a bien été prise en compte, cilquer sur le bouton retour pour revenir à l'accueil.</p>
+                                    <hr>
+                                    <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'index.php';">Retour</button>
+                                </div>
+			
+                       
+
+                        <?php
 			}
 			else
 			{
-				echo "erreur de tes morts!";
+				echo "erreur";
 				//erreur qte produit
 				
 			}
@@ -52,5 +64,16 @@
 	}
 	else
 	{
-		//echo "pas co :(";
+            ?>
+        
+	
+	<div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Commande impossible</h4>
+            <p>Vous devez être connecté en tant qu'utilisateur pour commander merci de cliquer sur le bouton si dessous pour vous connectez.</p>
+            <hr>
+            <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'index.php?uc=connexionConsommateur&action=connexion';">Se connecter</button>
+        </div>
+		
+        <?php
 	}
+        ?>

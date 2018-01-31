@@ -51,6 +51,7 @@ $categories = get_categ();
         
         $req->execute();
         }
+        //sinon
          else{
                global $bdd;
         $req = $bdd->prepare("INSERT INTO produit ( libelle, description, prixunitaire, quantite, id_utilisateur) VALUES ("."'"."$libelle"."'".","."'"."$description"."'".", $prix, $qtt, $id);");

@@ -1,16 +1,12 @@
-<div class="col-sm-10 col-xs-12">
-			<?php
-					
-				echo "<div class='col-12 col-sm-10 well'>						
-                                                        <form method='post' action='index.php?uc=voirProduitsProducteur'>
-                                                                                <p>Le Produit à bien été supprimer, Cliquez sur retour pour revenir à la Liste des Produits<p>
-										<input type='submit' class='form-control input-sm' value='Retour'></input>
-									</form>
-								</div>
-							</div>
-					</div>";       
-                                
-			?>
+
+
+	<div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Supression terminé</h4>
+            <p>Le Produit a bien été supprimé.</p>
+            <hr>
+            <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'index.php';">Retour</button>
+        </div>
 			
-		  </div>
+
+
 
