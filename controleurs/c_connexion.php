@@ -5,7 +5,7 @@ switch($action)
 {
 	case 'formInscription' :
 	{
-		include_once('vues/v_inscriptionProducteur.php');
+		include_once('vues/v_inscription.php');
 		break;
 	}
 	case 'inscription' :

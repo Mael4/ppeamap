@@ -1,15 +1,18 @@
 <?php
-	$categories = get_categ();
 	
-	if (!isset($_REQUEST['categ']))
+	if (!isset($_REQUEST['idUtilisateur']) || !isset($_REQUEST['action']))
 	{
-		$produits = get_produit(0);
+		include('vues/v_accueil.php');
 	}
 	
-	else
+	elseif($_REQUEST['action']=='Modifier')
 	{
-		$produits = get_produit($_REQUEST['categ']);
-	}
-	include('vues/v_voirProduits.php');
+		$utilisateurs = get_unUtilisateur($_REQUEST['idUtilisateur']);
+                include('vues/v_ModifierUtilisateur.php');
+        }elseif($_REQUEST['action']=='Supprimer'){
+            $utilisateurs = get_unUtilisateur($_REQUEST['idUtilisateur']);
+            include('vues/v_SupprimerUtilisateur.php');
+        }
+	
 	
 ?>
