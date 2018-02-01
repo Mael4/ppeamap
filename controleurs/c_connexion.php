@@ -31,7 +31,7 @@ switch($action)
 			$_SESSION['ville']=$ville;
 			$_SESSION['codePostal']=$codePostal;
 			$_SESSION['tel']=$tel;
-			header('Location: index.php?uc=connexionProducteur&action=formInscription');
+			header('Location: index.php?uc=connexion&action=formInscription');
 		}
 		else
 		{
@@ -42,7 +42,7 @@ switch($action)
 	}
 	case 'connexion' :
 	{
-		include_once('vues/v_connexionProducteur.php');
+		include_once('vues/v_connexion.php');
 		break;
 	}
 }

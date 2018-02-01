@@ -25,10 +25,8 @@ switch($uc)
 		{include("controleurs/c_voirProduits.php");break;}
 	case 'gestionPanier' :
 		{include("controleurs/c_gestionPanier.php");break;}
-	case 'connexionProducteur' :
-		{include("controleurs/c_connexionProducteur.php");break;}
-	case 'connexionConsommateur' :
-		{include("controleurs/c_connexionConsommateur.php");break;}
+	case 'connexion' :
+		{include("controleurs/c_connexion.php");break;}
 	case 'infosCompte' :
 		{include("controleurs/c_infosCompte.php");break;}
 	case 'voirProduitsProducteur' :

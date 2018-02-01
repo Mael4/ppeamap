@@ -20,8 +20,7 @@
 						<ul class='nav navbar-nav'>
 						  <li><a href='index.php?uc=voirProduits'>Produits</a></li>
 						  <li><a href='index.php?uc=gestionPanier&action=voir'>Panier</a></li>
-						  <li><a href='index.php?uc=connexionProducteur&action=connexion'>Espace producteurs</a></li>
-						  <li><a href='index.php?uc=connexionConsommateur&action=connexion'>Espace consommateurs</a></li>
+						  <li><a href='index.php?uc=connexion&action=connexion'>Connexion</a></li>
 						</ul>
 					  </div>
 					</nav>";
