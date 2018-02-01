@@ -23,9 +23,15 @@
 					<td>Prix Unitaire</td>
 					<td>Action</td> <!--bouton supprimer-->
 				</tr>";
-		
+                                
 				for ($i=0 ;$i < $nbArticles ; $i++)
 				{
+                                    $req = $bdd->prepare("Select quantite from produit where libelle='".$_SESSION['panier']['libelleProduit'][$i]."' ");
+                                    $req->execute();
+                                    $ligne=$req->fetch();
+                                  
+                                     $max = (int)  $ligne['quantite'];
+                                       
 					echo "<tr>";
 					
 					echo "<td>
@@ -38,7 +44,7 @@
 					
 					echo "<td>
 								<form method='post' action='index.php?uc=gestionPanier&action=modifier&libelleProduit=".$_SESSION['panier']['libelleProduit'][$i]."'>
-									<input class='form-control' type='number' size='4' name='quantiteProd' value='".$_SESSION['panier']['qteProduit'][$i]."'></br>
+									<input class='form-control' type='number' size='4' min='1' max='".$max."' name='quantiteProd' value='".$_SESSION['panier']['qteProduit'][$i]."'></br>
 									<input class='form-control' type='submit' value='modifier'>
 								</form>
 						</td>";

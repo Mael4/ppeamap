@@ -37,9 +37,14 @@
 					
 					$retour=nouvColis($montantTotal, $idLivraison, $quantiteProd, $idProduit);
                                         //echo($retour);
+                                           $req = $bdd->prepare("UPDATE produit SET quantite = quantite-".$quantiteProd." WHERE id = ".$idProduit."");
+                              $req->execute();
 				}
+                                supprimePanier();
+                                 
+                           
 				
-			?>
+			?>  
         
                             
                                 <div class="alert alert-success" role="alert">
@@ -55,9 +60,14 @@
 			}
 			else
 			{
-				echo "erreur";
-				//erreur qte produit
-				
+				?> 
+                                    <div class="alert alert-danger" role="alert">
+                                  <h4 class="alert-heading">Commande impossible</h4>
+                                 <p>les produits ne sont plus disponible </p>
+                                <hr>
+                             <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'index.php?uc=gestionPanier&action=voir';">Retour</button>
+                            </div>
+	<?php			
 			}
 		}
 		

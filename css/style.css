@@ -2,7 +2,9 @@ h1, h3
 {
     text-align:center;
 }
-	
+.stock{
+    color:red;
+}	
 .carousel {           
       
     overflow: hidden;
