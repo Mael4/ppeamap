@@ -25,10 +25,8 @@ switch($uc)
 		{include("controleurs/c_voirProduits.php");break;}
 	case 'gestionPanier' :
 		{include("controleurs/c_gestionPanier.php");break;}
-	case 'connexionProducteur' :
-		{include("controleurs/c_connexionProducteur.php");break;}
-	case 'connexionConsommateur' :
-		{include("controleurs/c_connexionConsommateur.php");break;}
+	case 'connexion' :
+		{include("controleurs/c_connexion.php");break;}
 	case 'infosCompte' :
 		{include("controleurs/c_infosCompte.php");break;}
 	case 'voirProduitsProducteur' :
@@ -41,6 +39,10 @@ switch($uc)
 		{include("controleurs/c_creationCompte.php");break;}*/
 	case 'passerCommande' :
 		{include("controleurs/c_commande.php");break;}
+        case 'voirUtilisateur' :
+		{include("controleurs/c_voirUtilisateur.php");break;}
+        case 'gererUtilisateur' :
+		{include("controleurs/c_GererUtilisateur.php");break;}
 	case 'ajout' :
 		{include("controleurs/c_gestionProduits.php");break;}
                      case 'gestionPanierProducteur' :

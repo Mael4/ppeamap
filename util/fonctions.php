@@ -27,12 +27,36 @@ function get_produit($uneCateg) //donne tous les produit ou seulement ceux d'une
     return $produits;
 }
 
+function get_utilisateur() //donne tous les produit ou seulement ceux d'une categ
+{
+    global $bdd;
+	$req = 'SELECT U.id,U.nom,U.prenom,libelle FROM utilisateur U,type_utilisateur T WHERE U.id_type_utilisateur=T.id ORDER BY id_Type_utilisateur';
+	$req = $bdd->prepare($req);
+    $req->execute();
+    $utilisateurs = $req->fetchAll();
+
+    return $utilisateurs;
+}
+
 function get_unProduit($unIdProduit) //donne tous les produit ou seulement ceux d'une categ
 {
     global $bdd;
 	$unIdProduit = (int) $unIdProduit;
 
 	{$req = "SELECT * FROM produit WHERE produit.id = '".$unIdProduit."' ";}
+	$req = $bdd->prepare($req);
+    $req->execute();
+    $produits = $req->fetchAll();
+
+    return $produits;
+}
+
+function get_unUtilisateur($unIdUtilisateur) //donne tous les produit ou seulement ceux d'une categ
+{
+    global $bdd;
+	$unIdUtilisateur = (int) $unIdUtilisateur;
+
+	{$req = "SELECT * FROM Utilisateur WHERE produit.id = '".$unIdUtilisateur."' ";}
 	$req = $bdd->prepare($req);
     $req->execute();
     $produits = $req->fetchAll();

@@ -20,8 +20,7 @@
 						<ul class='nav navbar-nav'>
 						  <li><a href='index.php?uc=voirProduits'>Produits</a></li>
 						  <li><a href='index.php?uc=gestionPanier&action=voir'>Panier</a></li>
-						  <li><a href='index.php?uc=connexionProducteur&action=connexion'>Espace producteurs</a></li>
-						  <li><a href='index.php?uc=connexionConsommateur&action=connexion'>Espace consommateurs</a></li>
+						  <li><a href='index.php?uc=connexion&action=connexion'>Connexion</a></li>
 						</ul>
 					  </div>
 					</nav>";
@@ -37,7 +36,7 @@
 						  <a class='navbar-brand' href='index.php'>AMAP</a>
 						</div>
 						<ul class='nav navbar-nav'>
-						  <li><a href='index.php?uc=voirProduits'>Catégories</a></li>
+						  <li><a href='index.php?uc=voirUtilisateur'>Catégories</a></li>
 						  <li><a href='index.php?uc=voirProduitsProducteur'>Comptes utilisateur</a></li>
 						  <li><a href='index.php?uc=infoCompte&action=voir'>informations compte</a></li>
 						  <li><a href='index.php?uc=deco'>Déconnectez-vous</a></li>
