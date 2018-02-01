@@ -12,6 +12,6 @@
 		</form>
 		</br>
 		<p>Pas de compte ?</p>
-		<a id='inscription_consommateur' href='index.php?uc=connexionProducteur&action=formInscription'>Cliquez ici!</a>
+		<a id='inscription_consommateur' href='index.php?uc=connexion&action=formInscription'>Cliquez ici!</a>
 
 		</div>

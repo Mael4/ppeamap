@@ -1,10 +1,10 @@
-<p>Inscription consommateur</p>
+<p>Inscription</p>
 <?php
 	if ( isset($_SESSION['alreadyExists']) && $_SESSION['alreadyExists'] )
 	{
 ?>
 	<div class='form-group'>
-		<form method='POST' action='index.php?uc=connexionConsommateur&action=inscription'>
+		<form method='POST' action='index.php?uc=connexion&action=inscription'>
 				<label for='login_consommateur'>Login</label>
 				<input name='login_consommateur' id='login_consommateur' type='text' class='form-control' value='' placeholder="Le login et/ou le mail que vous avez rentré précédemment existe(nt) déjà" size='30' maxlength='45' onblur="checkLogin()" style="border-color: rgba(255, 0, 0, 1); box-shadow: 0 0 8px rgba(255, 0, 0, 1);">
 				
@@ -45,7 +45,7 @@
 	{
 ?>
 		<div class='form-group'>
-		<form method='POST' action='index.php?uc=connexionConsommateur&action=inscription'>
+		<form method='POST' action='index.php?uc=connexion&action=inscription'>
 				<label for='login_consommateur'>Login</label>
 				<input name='login_consommateur' id='login_consommateur' type='text' class='form-control' size='30' maxlength='45' onblur="checkLogin()" style="border-color: rgba(255, 0, 0, 1); box-shadow: 0 0 8px rgba(255, 0, 0, 1);">
 				
