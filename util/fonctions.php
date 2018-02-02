@@ -51,6 +51,16 @@ function get_unProduit($unIdProduit) //donne tous les produit ou seulement ceux 
     return $produits;
 }
 
+function get_type_utilisateur(){
+    global $bdd;
+	$req = 'SELECT id,libelle FROM type_utilisateur';
+	$req = $bdd->prepare($req);
+    $req->execute();
+    $tutilisateur = $req->fetchAll();
+
+    return $tutilisateur;
+}
+
 function get_unUtilisateur($unIdUtilisateur) //donne tous les produit ou seulement ceux d'une categ
 {
     global $bdd;
@@ -95,7 +105,7 @@ function get_produitProducteur($unId) //donne tous les produit ou seulement ceux
     return $produits;
 }
 
-function set_param_utilisateur($id, $nom, $prenom, $adresse, $mail, $tel, $cp, $ville, $login)
+function set_param_utilisateur($id, $nom, $prenom, $adresse, $mail, $tel, $cp, $ville, $login,$type)
 {
   	global $bdd;
   	$req = $bdd->prepare('UPDATE utilisateur
@@ -106,7 +116,8 @@ function set_param_utilisateur($id, $nom, $prenom, $adresse, $mail, $tel, $cp, $
 						tel= :tel,
 						codepostal= :codepostal,
 						ville= :ville,
-						login= :login
+						login= :login,
+                                                id_Type_utilisateur= :type
 						WHERE id= :id');
 
     $req->execute(array(
@@ -118,6 +129,7 @@ function set_param_utilisateur($id, $nom, $prenom, $adresse, $mail, $tel, $cp, $
     	'codepostal' => $cp,
     	'ville' => $ville,
     	'login' => $login,
+        'type' => $type,
     	'id' => $id
     ));
 	return true;
@@ -161,6 +173,45 @@ function set_param_compte($id, $nom, $prenom, $adresse, $mail, $tel, $cp, $ville
 	$_SESSION['codepostal'] = $cp;
 	$_SESSION['ville'] = $ville;
 	$_SESSION['mdp'] = $newMdp;
+	$_SESSION['login'] = $login;
+
+	return true;
+}
+
+function set_param_compte_nomdp($id, $nom, $prenom, $adresse, $mail, $tel, $cp, $ville, $login)
+{
+  	global $bdd;
+  	$req = $bdd->prepare('UPDATE utilisateur
+						SET nom= :nom,
+						prenom= :prenom,
+						adresse= :adresse,
+						mail= :mail,
+						tel= :tel,
+						codepostal= :codepostal,
+						ville= :ville,
+						login= :login
+						WHERE id= :id');
+
+    $req->execute(array(
+    	'nom' => $nom,
+    	'prenom' => $prenom,
+    	'adresse' => $adresse,
+    	'mail' => $mail,
+    	'tel' => $tel,
+    	'codepostal' => $cp,
+    	'ville' => $ville,
+    	'login' => $login,
+    	'id' => $id
+    ));
+
+	$_SESSION['id'] = $id;
+	$_SESSION['nom'] = $nom;
+	$_SESSION['prenom'] = $prenom;
+	$_SESSION['adresse'] = $adresse;
+	$_SESSION['mail'] = $mail;
+	$_SESSION['tel'] = $tel;
+	$_SESSION['codepostal'] = $cp;
+	$_SESSION['ville'] = $ville;
 	$_SESSION['login'] = $login;
 
 	return true;
@@ -227,20 +278,12 @@ function verifierCompteExistant($login, $mail)
 function set_compte($login, $nom, $prenom, $adresse, $mail, $tel, $cp, $ville, $mdp, $type)//creer un compte
 {
     global $bdd;
-    $req = $bdd->prepare("INSERT INTO utilisateur(nom, prenom, adresse, mail, tel, codepostal, ville, mdp, login, id_Type_utilisateur)
-							  Value(:nom, :prenom, :adresse, :mail, :tel, :codePostal, :ville, :mdp, :login, :type)");
-		$req->execute(array(
-		'nom' => $nom,
-		'prenom' => $prenom,
-		'adresse' => $adresse,
-		'mail' => $mail,
-		'tel' => $tel,
-		'codePostal' => $codePostal,
-		'ville' => $ville,
-		'mdp' => $mdp,
-		'login' => $login,
-		'type' => $type));
+    $req = ("INSERT INTO utilisateur(nom, prenom, adresse, mail, tel, codepostal, ville, mdp, login, id_Type_utilisateur)
+							   Value('$login', '$nom', '$prenom', '$adresse', '$mail', $tel, $cp, '$ville', '$mdp', 3)");
+    $req = $bdd->prepare($req);
+    $req -> execute();
 }
+		
 
 //modifier un article
 function modifierArticleBD($idProduit, $description, $prix, $idCategorie)

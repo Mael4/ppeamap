@@ -10,16 +10,16 @@ switch($action)
 	}
 	case 'inscription' :
 	{
-		$login = $_POST['login_producteur'];
-		$nom = $_POST['nom_producteur'];
-		$prenom = $_POST['prenom_producteur'];
-		$adresse = $_POST['adresse_producteur'];
-		$mail = $_POST['mail_producteur'];
-		$tel = $_POST['tel_producteur'];
-		$codePostal = $_POST['code_postal_producteur'];
-		$ville = $_POST['ville_producteur'];
-		$mdp = $_POST['mdp_producteur'];
-		$mdp2 = $_POST['mdp_producteur2'];
+		$login = $_POST['login_utilisateur'];
+		$nom = $_POST['nom_utilisateur'];
+		$prenom = $_POST['prenom_utilisateur'];
+		$adresse = $_POST['adresse_utilisateur'];
+		$mail = $_POST['mail_utilisateur'];
+		$tel = $_POST['tel_utilisateur'];
+		$codepostal = $_POST['code_postal_utilisateur'];
+		$ville = $_POST['ville_utilisateur'];
+		$mdp = $_POST['mdp_utilisateur'];
+		$mdp2 = $_POST['mdp_utilisateur2'];
 
 		if (verifierCompteExistant($login, $mail))
 		{
@@ -34,9 +34,8 @@ switch($action)
 			header('Location: index.php?uc=connexion&action=formInscription');
 		}
 		else
-		{
-				$creationCompte = set_compte($login, $nom, $prenom, $adresse, $mail, $tel, $codepostal, $ville, $mdp, 2);
-
+		{          
+				$creationCompte = set_compte($login, $nom, $prenom, $adresse, $mail, $tel, $codepostal, $ville, $mdp, 3);
 		}
 		break;
 	}

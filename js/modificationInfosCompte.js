@@ -80,6 +80,8 @@ function checkSamePswd()
 {
     var pswd1 = document.querySelector('[id^="mdp_"]');
     var pswd2 = document.querySelector('[id^="mdp_"][id$="2"]');
+    if(pswd2 != ""){
+    
     if( pswd1.value != "" && pswd1.value != pswd2.value )
     {
     	document.querySelector('[id^="mdp_"][id$="2"]').style.borderColor = "rgba(255, 0, 0, 1)";
@@ -90,6 +92,7 @@ function checkSamePswd()
     {
     	document.querySelector('[id^="mdp_"][id$="2"]').style.border = "1px solid #CCC";
 			document.querySelector('[id^="mdp_"][id$="2"]').style.boxShadow = "initial";
+    }
     }
 };
 

@@ -7,6 +7,20 @@ foreach($utilisateurs as $utilisateur)
 		<div class='form-group col-lg-10 ' >
 			<h1>Informations du compte</h1>
 			<form method='post' action='index.php?uc=ModifierUtilisateur&action=modif&idUtilisateur=".$utilisateur['id']."'>
+                            <label for='libeltype'>Type Utilisateur</label>
+                                <select class='form-control' name='libeltype'>";
+                                        $cpt=1;              
+					foreach($typeUtilisateurs as $type)
+					{
+                                            if($cpt==$type['id']){
+                                               echo "<<option name='libeltype' selected='selected' value=".$type['id'].">".$type['libelle']."</option>";
+                                            }else{
+						echo "<option name='libeltype' value=".$type['id'].">".$type['libelle']."</option>";
+                                            }
+					}
+                  
+                                         
+                                echo "</select>
                                 <input name='id_util' value ='".$utilisateur['id']."' id='id_util' type='hidden' class='form-control' size='30' maxlength='45' />
                                     
 				<label for='nom_util'>Nom</label>

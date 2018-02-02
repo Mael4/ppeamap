@@ -24,7 +24,7 @@ elseif($_REQUEST['action'] == "ajouter")
 	echo $_REQUEST['prixProduit'];
 	**/
 	ajouterArticle($_REQUEST['idProduit'],$_REQUEST['libelleProduit'],$_REQUEST['descriptionProduit'],$_POST['qte_produit'],$_REQUEST['prixProduit']);
-	include("vues/v_panier.php"); //retourne sur le panier
+	include("controleurs/c_voirProduits.php"); //retourne sur le panier
 }
 elseif($_REQUEST['action'] == "modifier")
 {

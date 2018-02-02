@@ -8,6 +8,7 @@
 	elseif($_REQUEST['action']=='Modifier')
 	{
 		$utilisateurs = get_unUtilisateur($_REQUEST['idUtilisateur']);
+                $typeUtilisateurs = get_type_utilisateur();
                 include ('vues/v_ModifierUtilisateur.php');
         }elseif($_REQUEST['action']=='Supprimer'){
             $utilisateurs = get_unUtilisateur($_REQUEST['idUtilisateur']);

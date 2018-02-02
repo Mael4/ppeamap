@@ -29,12 +29,12 @@
 				<input name='login_util' value ='".$_SESSION['login']."' id='login_util' type='text' class='form-control' size='30' maxlength='45' /></br>
 				
 				<label for='ancien_mdp'>MDP</label></br>
-				Ancien MDP<input name='ancien_mdp' id='ancien_mdp' type='password' class='form-control' size='30' maxlength='45' />
 				Nouveau MDP<input name='nouv_mdp'  id='nouv_mdp' type='password' class='form-control' size='30' maxlength='45' />
 				Confirmer Nouveau MDP<input name='nouv_mdp2' id='nouv_mdp2' type='password' class='form-control' size='30' maxlength='45' />
 				</br>
-				<input type='submit' value='Valider' class='btn btn-primary'>
-				<input type='reset' value='Annuler' class='btn btn-primary'>
-			</form>
+				<input type='submit' class='btn btn-primary btn-lg' value='Valider' class='btn btn-primary'>";?>
+				<button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'index.php';">Retour</button>
+                                <?php
+			echo"</form>
 		</div>
 	</div>";
