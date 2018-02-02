@@ -81,7 +81,7 @@
             <h4 class="alert-heading">Commande impossible</h4>
             <p>Vous devez être connecté en tant qu'utilisateur pour commander merci de cliquer sur le bouton si dessous pour vous connectez.</p>
             <hr>
-            <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'index.php?uc=connexionConsommateur&action=connexion';">Se connecter</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="location.href = 'index.php?uc=connexion&action=connexion';">Se connecter</button>
         </div>
 		
         <?php
