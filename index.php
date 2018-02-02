@@ -53,10 +53,13 @@ switch($uc)
  
             
  
-       case 'modificationDeProduit' :
+        case 'modificationDeProduit' :
  
         {include("controleurs/c_modificationDeProduit.php");break;}
+        
+        case 'exportXml' :
  
+        {include("controleurs/c_exportXml.php");break;}
            
  
         case 'AjoutDeProduit' :

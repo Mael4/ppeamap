@@ -84,3 +84,22 @@
 					</nav>";
 			}
 		
+			elseif ($_SESSION['id_Type_utilisateur'] == 4)  //connecté en tant que secrétaire 
+			{
+				echo "
+					<nav class='navbar navbar-default'>
+                                          <p> connecté en tant que secrétaire</p>
+					  <div class='container'>
+						<div class='navbar-header'>
+						  <a class='navbar-brand' href='index.php'>AMAP</a>
+						</div>
+						<ul class='nav navbar-nav'>
+						  <li><a href='index.php?uc=voirProduits'>Produits</a></li>
+                                                   <li><a href='index.php?uc=exportXml'>Exporter le xml</a></li>
+						  <li><a href='index.php?uc=infoCompte&action=voir'>informations compte</a></li>
+						  <li><a href='index.php?uc=gestionPanier&action=voir'>Panier</a></li>
+						  <li><a href='index.php?uc=deco'>Déconnectez-vous</a></li>
+						</ul>
+					  </div>
+					</nav>";
+			}
