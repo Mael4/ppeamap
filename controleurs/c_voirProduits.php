@@ -3,13 +3,15 @@
 	
 	if (!isset($_REQUEST['categ']))
 	{
-		$produits = get_Utilisateur(0);
+		$produits = get_Produit(0);
 	}
 	
 	else
 	{
+           
 		$produits = get_produit($_REQUEST['categ']);
+        
 	}
-	include('vues/v_voirUtilisateur.php');
+	include('vues/v_voirProduits.php');
 	
 ?>

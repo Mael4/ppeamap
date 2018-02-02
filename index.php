@@ -31,6 +31,8 @@ switch($uc)
 		{include("controleurs/c_infosCompte.php");break;}
 	case 'voirProduitsProducteur' :
 		{include("controleurs/c_voirProduitsProducteur.php");break;}
+        case 'voirProduitsAdmin' :
+		{include("controleurs/c_voirProduitsAdmin.php");break;}
 	case 'deco' :
 		{include("controleurs/c_deconnection.php");break;}
 	case 'infoCompte' :

@@ -17,7 +17,7 @@
                                                             <input type='submit' id='button_ModifierUtilisateur".$utilisateur['id']."' class='form-control input-sm' value='Modifier Utilisateur'></input>
                                                         </form>
                                                         <form method='post' action='index.php?uc=GererUtilisateur&action=Supprimer&idUtilisateur=".$utilisateur['id']."'>
-                                                            <input type='submit' id='button_SupprimerUtilisateur".$utilisateur['id']."' class='form-control input-sm' value='Supprimer Utilisateur'></input>
+                                                            <input type='submit' id='button_SupprimerUtilisateur".$utilisateur['id']."' onClick='return verif()' class='form-control input-sm' value='Supprimer Utilisateur'></input>
                                                         </form>
 								
                                                         </div>

@@ -146,7 +146,7 @@
                                             <div class='row'>
 						<div class='col-12 col-sm-6 well well-sm'>
                                                     Catégorie Produit: 
-                                                    <select class='form-control'>";
+                                                    <select class='form-control' name='libelCat'>";
                                                     
 					
                                             
