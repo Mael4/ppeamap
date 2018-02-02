@@ -41,7 +41,9 @@ switch($uc)
 		{include("controleurs/c_commande.php");break;}
         case 'voirUtilisateur' :
 		{include("controleurs/c_voirUtilisateur.php");break;}
-        case 'gererUtilisateur' :
+        case 'ModifierUtilisateur':
+		{include("controleurs/c_ModifierUtilisateur.php");break;}
+        case 'GererUtilisateur' :
 		{include("controleurs/c_GererUtilisateur.php");break;}
 	case 'ajout' :
 		{include("controleurs/c_gestionProduits.php");break;}

@@ -56,12 +56,12 @@ function get_unUtilisateur($unIdUtilisateur) //donne tous les produit ou seuleme
     global $bdd;
 	$unIdUtilisateur = (int) $unIdUtilisateur;
 
-	{$req = "SELECT * FROM Utilisateur WHERE produit.id = '".$unIdUtilisateur."' ";}
+	{$req = "SELECT * FROM Utilisateur WHERE id = '".$unIdUtilisateur."' ";}
 	$req = $bdd->prepare($req);
     $req->execute();
-    $produits = $req->fetchAll();
+    $Utilisateur = $req->fetchAll();
 
-    return $produits;
+    return $Utilisateur;
 }
 
 function verifQteProduit($libelle, $qte)
@@ -94,6 +94,35 @@ function get_produitProducteur($unId) //donne tous les produit ou seulement ceux
 
     return $produits;
 }
+
+function set_param_utilisateur($id, $nom, $prenom, $adresse, $mail, $tel, $cp, $ville, $login)
+{
+  	global $bdd;
+  	$req = $bdd->prepare('UPDATE utilisateur
+						SET nom= :nom,
+						prenom= :prenom,
+						adresse= :adresse,
+						mail= :mail,
+						tel= :tel,
+						codepostal= :codepostal,
+						ville= :ville,
+						login= :login
+						WHERE id= :id');
+
+    $req->execute(array(
+    	'nom' => $nom,
+    	'prenom' => $prenom,
+    	'adresse' => $adresse,
+    	'mail' => $mail,
+    	'tel' => $tel,
+    	'codepostal' => $cp,
+    	'ville' => $ville,
+    	'login' => $login,
+    	'id' => $id
+    ));
+	return true;
+}
+
 
 function set_param_compte($id, $nom, $prenom, $adresse, $mail, $tel, $cp, $ville, $login, $newMdp)
 {
