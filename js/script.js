@@ -216,3 +216,7 @@ $(function() {
         reader.readAsDataURL(file);
     });  
 });
+//popup de demande de confirmation lors de suppresion d'utilisateur par admin
+function verif()
+{ check = confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?') 
+    if(check==false){return false} };

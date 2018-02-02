@@ -8,7 +8,9 @@
 	
 	else
 	{
+           
 		$produits = get_produit($_REQUEST['categ']);
+        
 	}
 	include('vues/v_voirProduits.php');
 	

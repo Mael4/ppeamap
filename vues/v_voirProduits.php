@@ -57,7 +57,7 @@
 							<div class='row'>
 								<div class='col-12 col-sm-6 well well-sm'>
 									<form method='post' action='index.php?uc=gestionPanier&action=ajouter&idProduit=".$produit['id']."&libelleProduit=".$produit['libelle']."&descriptionProduit=".$produit['description']."&prixProduit=".$produit['prixunitaire']."'>
-                                                                                <input type='number' value=0 id='qte_produit' min='1' max='".$produit['quantite']."' class='form-control input-sm' name='qte_produit'>
+                                                                                <input type='number' value=1 id='qte_produit' min='1' max='".$produit['quantite']."' class='form-control input-sm' name='qte_produit'>
 										<input type='submit' id='button_produit".$produit['id']."' class='form-control input-sm' value='Ajouter au panier'></input>
 									</form>
 								</div>
@@ -152,7 +152,7 @@
 							<div class='row'>
 								<div class='col-12 col-sm-6 well well-sm'>
 									<form method='post' action='index.php?uc=gestionPanier&action=ajouter&idProduit=".$produit['id']."&libelleProduit=".$produit['libelle']."&descriptionProduit=".$produit['description']."&prixProduit=".$produit['prixunitaire']."'>
-										<input type='number' value=0 id='qte_produit' class='form-control input-sm' name='qte_produit' min='1'>
+										<input type='number' value=1 id='qte_produit' class='form-control input-sm' name='qte_produit' min='1'>
 										<input type='submit' id='button_produit".$produit['id']."' class='form-control input-sm' value='Ajouter au panier'></input>
 									</form>
 								</div>

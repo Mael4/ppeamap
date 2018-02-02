@@ -8,7 +8,7 @@
 					foreach($categories as $categorie)
 					{
 						echo "<li>
-								<a href='index.php?uc=voirProduitsProducteur&categ=".$categorie['id']."'>".$categorie['libelle']."</a>
+								<a href='index.php?uc=voirProduits&categ=".$categorie['id']."'>".$categorie['libelle']."</a>
 							 </li>";
 					}
 					?>
@@ -17,16 +17,7 @@
 				</div>
 			  
 				<?php
-                                $i=0;
-                                	foreach($produits as $cle => $produit)
-				{
-                                 if($produit['id_utilisateur']==$_SESSION['id']){
-                                     
-                                     $i++;
-                                     
-                                      }
-                                }
-					echo "<div class='well well-sm'><p>".$i." produit(s)</p></div>";
+					echo "<div class='well well-sm'><p>".count($produits)." produit(s)</p></div>";
                                         echo "<form method='post' action='index.php?uc=gestionPanierProducteur&action=Ajouter'>
 										<input type='submit' id='button_Ajouterproduit' class='form-control input-sm' value='Ajouter un Produit'></input>
 									</form>";
@@ -37,10 +28,10 @@
 		  <div class="col-sm-10 col-xs-12">
 			<?php
                                 if (!isset($_SESSION['id_Type_producteur'])) {
-                                  
+                                    
 				foreach($produits as $cle => $produit)
 				{
-                                    if($produit['id_utilisateur']==$_SESSION['id']){
+					
 				echo "<div class='col-12 col-sm-10 well'>
 						
 							<div class='row'>
@@ -78,7 +69,6 @@
 					</div>";
 					
 				}
-                                }
                                 }
                                 
 			?>

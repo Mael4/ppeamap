@@ -17,7 +17,7 @@ $test=0;
 
 
 
-        
+        $categories=$_POST['libelCat'];
         $tailleImg= $_FILES['input-file-preview']['size'] ;
 	$libelle=$_POST['libe'];
         $prix=$_POST['prix'];
@@ -46,6 +46,7 @@ $test=0;
          //insertion des données dans la base
         $req = $bdd->prepare("UPDATE produit SET libelle='".$libelle."',
                                              prixunitaire=".$prix.",
+                                             id_categorie=".$categories.",
                                              quantite=".$qtt.",
                                              nom_image='".$nomImgModifie."',
                                              description='".$description."'
@@ -69,6 +70,7 @@ $test=0;
                        //insertion des données dans la base sans l'image
         $req = $bdd->prepare("UPDATE produit SET libelle='".$libelle."',
                                              prixunitaire=".$prix.",
+                                             id_categorie=".$categories.",
                                              quantite=".$qtt.",
                                              description='".$description."'
                                              WHERE id=".$id."");
