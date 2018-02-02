@@ -15,9 +15,11 @@ if ($_REQUEST['action'] == "modif" && isset($_REQUEST['idUtilisateur']))
         $change_param = set_param_utilisateur($id, $nom_util, $prenom_util, $adresse_util, $mail_util, $tel_util, $cp_util, $ville_util, $login_util);
 		if ($change_param == true)
 		{
-			echo "Modification Compte Utilisateur ok";
-		}
-		header('Location: index.php?uc=ModifierUtilisateur&action=voir');
+                        include("vues/v_modificationDeProduit.php");
+                }else{
+                    include("vues/v_pageErreure.php");
+                }
+		
 }
 
 elseif ($_REQUEST['action'] == "voir")
