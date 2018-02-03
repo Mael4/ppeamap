@@ -20,7 +20,7 @@ switch($action)
 		$ville = $_POST['ville_utilisateur'];
 		$mdp = $_POST['mdp_utilisateur'];
 		$mdp2 = $_POST['mdp_utilisateur2'];
-
+                 //si le compte existe déja on renvoi sur le formulaire en idiquant que le compte existe déja
 		if (verifierCompteExistant($login, $mail))
 		{
 			$_SESSION['alreadyExists'] = true;
@@ -33,9 +33,11 @@ switch($action)
 			$_SESSION['tel']=$tel;
 			header('Location: index.php?uc=connexion&action=formInscription');
 		}
+                //sinon on créer le compte
 		else
 		{          
-				$creationCompte = set_compte($login, $nom, $prenom, $adresse, $mail, $tel, $codepostal, $ville, $mdp, 3);
+				$creationCompte = set_compte($login, $nom, $prenom, $adresse, $mail, $tel, $codepostal, $ville, $mdp,3);
+                                include('vues/v_compteCree.php');
 		}
 		break;
 	}

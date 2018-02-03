@@ -278,10 +278,15 @@ function verifierCompteExistant($login, $mail)
 function set_compte($login, $nom, $prenom, $adresse, $mail, $tel, $cp, $ville, $mdp, $type)//creer un compte
 {
     global $bdd;
-    $req = ("INSERT INTO utilisateur(nom, prenom, adresse, mail, tel, codepostal, ville, mdp, login, id_Type_utilisateur)
-							   Value('$login', '$nom', '$prenom', '$adresse', '$mail', $tel, $cp, '$ville', '$mdp', 3)");
+    $req = ("INSERT INTO utilisateur(login,nom, prenom, adresse, mail, tel, codepostal, ville, mdp, id_Type_utilisateur)
+							   Values('$login', '$nom', '$prenom', '$adresse', '$mail', $tel, $cp, '$ville', '$mdp', 3)");
+ 
+
+							
     $req = $bdd->prepare($req);
-    $req -> execute();
+    $req-> execute();
+
+  
 }
 		
 

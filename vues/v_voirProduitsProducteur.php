@@ -71,7 +71,7 @@
 										<input type='submit' id='button_produit".$produit['id']."' class='form-control input-sm' value='Modifier Produit'></input>
 									</form>
                                                                         <form method='post' action='index.php?uc=gestionPanierProducteur&action=Suprimer&idProduit=".$produit['id']."'>
-										<input type='submit' id='button_produit".$produit['id']."' class='form-control input-sm' value='Supprimer Produit'></input>
+										<input type='submit' id='button_produit".$produit['id']."' onClick='return verifSupProduit()' class='form-control input-sm' value='Supprimer Produit'></input>
 									</form>
 								</div>
 							</div>

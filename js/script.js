@@ -220,3 +220,6 @@ $(function() {
 function verif()
 { check = confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?') 
     if(check==false){return false} };
+function verifSupProduit()
+{ check = confirm('Êtes-vous sûr de vouloir supprimer ce produit ?') 
+    if(check==false){return false} };

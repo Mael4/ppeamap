@@ -1,5 +1,5 @@
 <?xml version="1.0"  encoding="UTF-8"?><livraisons><livraison>
- <nom>Benardeau</nom>
+ <nom>Benard</nom>
  <adresse>54 rue jesaispas</adresse>
      <codepostal>45000</codepostal>
          <ville>Orlï¿½ans</ville><colis>
@@ -50,12 +50,6 @@
              </colis><colis>
                 <ref>22</ref>
                  <montant>6</montant>
-             </colis><colis>
-                <ref>25</ref>
-                 <montant>0.9</montant>
-             </colis><colis>
-                <ref>26</ref>
-                 <montant>5</montant>
              </colis></livraison> <livraison>
  <nom>Secretaire</nom>
  <adresse>1454sqd qsdqs </adresse>
@@ -66,4 +60,20 @@
              </colis><colis>
                 <ref>21</ref>
                  <montant>80</montant>
+             </colis></livraison> <livraison>
+ <nom>deux</nom>
+ <adresse>deux</adresse>
+     <codepostal>45455</codepostal>
+         <ville>qsdcqcs</ville><colis>
+                <ref>11</ref>
+                 <montant>9</montant>
+             </colis><colis>
+                <ref>12</ref>
+                 <montant>5</montant>
+             </colis><colis>
+                <ref>13</ref>
+                 <montant>1</montant>
+             </colis><colis>
+                <ref>14</ref>
+                 <montant>4</montant>
              </colis></livraison> </livraisons>
